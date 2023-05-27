@@ -1,0 +1,19 @@
+Chandelier
+take log pole lights out of living room automation
+
+dedupe generator's conditoins for off stuff
+
+
+bar lights
+DBR
+cameras like Frontyard
+fireplace
+hot water timer
+Fandanglow heat
+get back deco lamp, shower light, dbr, wine lights?, xmas?, ?
+home away and arrivals
+nightlights
+
+
+This is just something I wrote to because UI editing of a thousand-line automation config file was difficult to manage.  I've expressed the same thing in about 100 lines of json.  But it's simple and limited and makes lots of presumptions.  Basically lists automations for lights and switches triggered from binary sensors (with optional allDay vs sun-below-horizon condition).  It also produces automations that turn off the lights if those sensors haven't been triggered (and the switches and lights haven't been turned on) in some specified (default 3600 seconds) amount of time.  I'm happy if someone wants to raise a PR to enhance or exand this - I likely won't as it's just a quick hack that I made and found useful enough to put out there for potential sharing.
+
