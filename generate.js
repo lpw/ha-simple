@@ -19,6 +19,18 @@ const getDeviceIdFromName = ( name ) => {
 // TODO: fix this
 const entityIdFromName = ( name ) => name.toLowerCase().replace( /\s/g, '_' )
 
+function getOffCondition( sw ) {
+	const offCondition = `
+  - condition: template
+    value_template: '{{ states.${sw}.state == "off" }}'`
+	return offCondition
+}
+
+function getAllOffCondition( a ) {
+	const allOffCondition = a.switches.map( getOffCondition ).join( '' )
+	return allOffCondition
+}
+
 function getOnString( a, beforeSunrise, afterSunrise ) {
 	const nightSceneIdPrefix = beforeSunrise ? 'night_' : ''
 	const nightSceneNamePrefix = beforeSunrise ? 'Night ' : ''
@@ -41,12 +53,17 @@ function getOnString( a, beforeSunrise, afterSunrise ) {
     entity_id: sun.sun
     state: below_horizon` : ''
 	const beforeSunriseCondition = beforeSunrise ? `
-  - condition: sun
-    before: sunrise` : ''
+  - condition: or
+    conditions:
+    - condition: time
+      after: '22:00:00'
+    - condition: sun
+      before: sunrise` : ''
 	const afterSunriseCondition = afterSunrise ? `
   - condition: sun
     after: sunrise` : ''
-  const conditions = `${notAllDayCondition}${beforeSunriseCondition}${afterSunriseCondition}` || '[]'
+	const allOffCondition = getAllOffCondition( a )
+  const conditions = `${notAllDayCondition}${beforeSunriseCondition}${afterSunriseCondition}${allOffCondition}` || '[]'
 	// const action = a.switches.map( s => {
 	// 	const deviceId = getDeviceIdFromName( s )
 	// 	const as = `
@@ -86,17 +103,32 @@ function getOnString( a, beforeSunrise, afterSunrise ) {
 // 	return ls
 // }
 
-function getSimpleSceneLight( lightString, nighttime ) {
+function getSimpleSceneLight( lightString, night ) {
 	const lightName = lightString.split( ':' )[ 0 ]
-	const brightnessDay = lightString.split( ':' )[ 1 ] || 255
-	const brightness = Math.round( nighttime ? brightnessDay * ( nighttime / 100 ) : brightnessDay )
+	const brightnessDay = +lightString.split( ':' )[ 1 ] 
 	// const domain = lightName.split( '.' )[ 0 ]
-	const friendlyName = lightName.split( '.' )[ 1 ]
+	const friendlyName = `friendly_name: ${lightName.split( '.' )[ 1 ]}`
+	const brightnessValue = lightString.split( ':' )[ 1 ]
+	const brightness = ( night && brightnessValue ) ? `brightness: ${brightnessValue}` : ''
+	let onWithBrightness
+	if( brightnessDay || night ) {
+		const brightnessNumerator = ( brightnessDay > 0 && brightnessDay <= 255 ) ? brightnessDay : 255
+		let brightness
+		if( night ) {
+			const nightDivisor = ( night > 0 && night <= 100 ) ? night / 100 : 0.2
+			brightness = Math.round( brightnessNumerator * nightDivisor )
+		} else {
+			brightness = brightnessNumerator
+		}
+		onWithBrightness = `brightness: ${brightness}
+      state: 'on'`
+	} else {
+		onWithBrightness = `state: 'on'`
+	}
 	const ls = `
     ${lightName}:
-      friendly_name: ${friendlyName}
-      brightness: ${brightness}
-      state: 'on'`
+      ${friendlyName}
+      ${onWithBrightness}`
 	return ls
 }
 
@@ -108,10 +140,10 @@ function getSceneSwitch( sw ) {
 	return ls
 }
 
-function getSceneString( a, nighttime ) {
-	const id = entityIdFromName( `${nighttime ? 'night ' : ''}scene ${a.name}` )
-	const name = `${nighttime ? 'Night ' : ''}Scene ${a.name}`
-	const entities = a.switches.map( s => s.split('.')[0] === 'light' ? getSimpleSceneLight( s, nighttime ) : getSceneSwitch( s ) ).join( '' )
+function getSceneString( a, night ) {
+	const id = entityIdFromName( `${night ? 'night ' : ''}scene ${a.name}` )
+	const name = `${night ? 'Night ' : ''}Scene ${a.name}`
+	const entities = a.switches.map( s => s.split('.')[0] === 'light' ? getSimpleSceneLight( s, night ) : getSceneSwitch( s ) ).join( '' )
 	const s = `
 - id: '${id}'
   name: ${name}
@@ -253,7 +285,7 @@ function getAutomationString( automations ) {
 	let sceneOutputString = ''
 	let switchesObject = {}
 	automations.forEach( a => {
-		if( a.nighttime ) {
+		if( a.night ) {
 			configurationOutputString += getOnString( a, true, false )
 			configurationOutputString += getOnString( a, false, true )
 		} else {
@@ -261,8 +293,8 @@ function getAutomationString( automations ) {
 		}
 		switchesObject = getSwitchesObject( a, switchesObject )
 		sceneOutputString += getSceneString( a )
-		if( a.nighttime ) {
-			sceneOutputString += getSceneString( a, a.nighttime )
+		if( a.night ) {
+			sceneOutputString += getSceneString( a, a.night )
 		}
 	})
 	configurationOutputString += Object.keys( switchesObject ).map( sw => {
