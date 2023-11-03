@@ -20,9 +20,10 @@ const getDeviceIdFromName = ( name ) => {
 const entityIdFromName = ( name ) => name.toLowerCase().replace( /\s/g, '_' )
 
 function getOffCondition( sw ) {
+	const swName = sw.split( ':' )[ 0 ]
 	const offCondition = `
   - condition: template
-    value_template: '{{ states.${sw}.state == "off" }}'`
+    value_template: '{{ states.${swName}.state == "off" }}'`
 	return offCondition
 }
 
@@ -31,13 +32,136 @@ function getAllOffCondition( a ) {
 	return allOffCondition
 }
 
-function getOnString( a, beforeSunrise, afterSunrise ) {
+// function getOnString( a, beforeSunrise, afterSunrise ) {
+// 	const nightSceneIdPrefix = beforeSunrise ? 'night_' : ''
+// 	const nightSceneNamePrefix = beforeSunrise ? 'Night ' : ''
+// 	const id = `id_on ${nightSceneIdPrefix}${a.name}`
+// 	const alias = `Turn on ${nightSceneNamePrefix}${a.name}`
+// 	const description = `Turn on ${nightSceneNamePrefix}${a.name}`
+// 	const scene = `scene_${a.name}`
+// 	const trigger = a.sensors.map( s => {
+// 		const deviceId = getDeviceIdFromName( s )
+// 		const ts = `
+//   - type: turned_on
+//     platform: device
+//     device_id: ${deviceId}
+//     entity_id: ${s}
+//     domain: binary_sensor`
+// 		return ts
+// 	}).join('')
+// 	const notAllDayCondition = !a.allDay ? `
+//   - condition: state
+//     entity_id: sun.sun
+//     state: below_horizon` : ''
+// 	const beforeSunriseCondition = beforeSunrise ? `
+//   - condition: or
+//     conditions:
+//     - condition: time
+//       after: '22:00:00'
+//     - condition: sun
+//       before: sunrise` : ''
+// 	const afterSunriseCondition = afterSunrise ? `
+//   - condition: sun
+//     after: sunrise` : ''
+// 	const allOffCondition = ''	// getAllOffCondition( a )
+//   const conditions = `${notAllDayCondition}${beforeSunriseCondition}${afterSunriseCondition}${allOffCondition}` || '[]'
+// 	// const action = a.switches.map( s => {
+// 	// 	const deviceId = getDeviceIdFromName( s )
+// 	// 	const as = `
+//   // - type: turn_on
+//   //   device_id: ${deviceId}
+//   //   entity_id: ${s}
+//   //   domain: ${s.split('.')[0]}`
+// 	// 	return as
+// 	// }).join('')
+// 	const action = `
+//   - service: scene.turn_on
+//     target: 
+//       entity_id: scene.${nightSceneIdPrefix}${entityIdFromName(scene)}
+//     metadata: {}`
+// 	const s = `
+// - id: '${id}'
+//   alias: ${alias}
+//   description: '${description}'
+//   trigger: ${trigger}
+//   condition: ${conditions}
+//   action: ${action}
+//   mode: single
+// `
+// 	return s
+// }
+
+// function getOnStringSingleActions( a, beforeSunrise, afterSunrise ) {
+// 	const nightSceneIdPrefix = beforeSunrise ? 'night_' : ''
+// 	const nightSceneNamePrefix = beforeSunrise ? 'Night ' : ''
+// 	const id = `id_on ${nightSceneIdPrefix}${a.name}`
+// 	const alias = `Turn on ${nightSceneNamePrefix}${a.name}`
+// 	const description = `Turn on ${nightSceneNamePrefix}${a.name}`
+// 	const scene = `scene_${a.name}`
+// 	const trigger = a.sensors.map( s => {
+// 		const deviceId = getDeviceIdFromName( s )
+// 		const ts = `
+//   - type: turned_on
+//     platform: device
+//     device_id: ${deviceId}
+//     entity_id: ${s}
+//     domain: binary_sensor`
+// 		return ts
+// 	}).join('')
+// 	const notAllDayCondition = !a.allDay ? `
+//   - condition: state
+//     entity_id: sun.sun
+//     state: below_horizon` : ''
+// 	const beforeSunriseCondition = beforeSunrise ? `
+//   - condition: or
+//     conditions:
+//     - condition: time
+//       after: '22:00:00'
+//     - condition: sun
+//       before: sunrise` : ''
+// 	const afterSunriseCondition = afterSunrise ? `
+//   - condition: sun
+//     after: sunrise` : ''
+// 	const allOffCondition = ''	// getAllOffCondition( a )
+//   const conditions = `${notAllDayCondition}${beforeSunriseCondition}${afterSunriseCondition}${allOffCondition}` || '[]'
+// 	const action = a.switches.map( s => {
+// 		const sn = s.split( ':' )[ 0 ]
+// 		const sb = s.split( ':' )[ 1 ] 
+// 		const deviceId = getDeviceIdFromName( sn )
+// 		const sbs = sb ? `
+//     brightness_pct: ${sb}` : ''
+// 		const as = `
+//   - type: turn_on
+//     device_id: ${deviceId}
+//     entity_id: ${sn}
+//     domain: ${sn.split('.')[0]}${sbs}`
+// 		return as
+// 	}).join('')
+// 	// const action = `
+//   // - service: scene.turn_on
+//   //   target: 
+//   //     entity_id: scene.${nightSceneIdPrefix}${entityIdFromName(scene)}
+//   //   metadata: {}`
+// 	const s = `
+// - id: '${id}'
+//   alias: ${alias}
+//   description: '${description}'
+//   trigger: ${trigger}
+//   condition: ${conditions}
+//   action: ${action}
+//   mode: single
+// `
+// 	return s
+// }
+
+function getOnStringSingleAction( a, beforeSunrise, afterSunrise, sw ) {
+	const swName = sw.split( ':' )[ 0 ]
 	const nightSceneIdPrefix = beforeSunrise ? 'night_' : ''
 	const nightSceneNamePrefix = beforeSunrise ? 'Night ' : ''
-	const id = `id_on ${nightSceneIdPrefix}${a.name}`
-	const alias = `Turn on ${nightSceneNamePrefix}${a.name}`
-	const description = `Turn on ${nightSceneNamePrefix}${a.name}`
-	const scene = `scene_${a.name}`
+	const id = `id_on ${nightSceneIdPrefix}${a.name} ${swName}`
+	const alias = `Turn on ${nightSceneNamePrefix}${a.name} ${swName}`
+	const description = `Turn on ${nightSceneNamePrefix}${a.name} ${swName}`
+	// const scene = `scene_${a.name}_${swName}`
 	const trigger = a.sensors.map( s => {
 		const deviceId = getDeviceIdFromName( s )
 		const ts = `
@@ -62,22 +186,27 @@ function getOnString( a, beforeSunrise, afterSunrise ) {
 	const afterSunriseCondition = afterSunrise ? `
   - condition: sun
     after: sunrise` : ''
-	const allOffCondition = getAllOffCondition( a )
+	// const allOffCondition = ''	// getAllOffCondition( a )
+	const allOffCondition = getOffCondition( sw )
   const conditions = `${notAllDayCondition}${beforeSunriseCondition}${afterSunriseCondition}${allOffCondition}` || '[]'
-	// const action = a.switches.map( s => {
-	// 	const deviceId = getDeviceIdFromName( s )
-	// 	const as = `
-  // - type: turn_on
-  //   device_id: ${deviceId}
-  //   entity_id: ${s}
-  //   domain: ${s.split('.')[0]}`
-	// 	return as
-	// }).join('')
-	const action = `
-  - service: scene.turn_on
-    target: 
-      entity_id: scene.${nightSceneIdPrefix}${entityIdFromName(scene)}
-    metadata: {}`
+	const action = [ sw ].map( s => {
+		const sn = sw.split( ':' )[ 0 ]
+		const sb = sw.split( ':' )[ 1 ] 
+		const deviceId = getDeviceIdFromName( sn )
+		const sbs = sb ? `
+    brightness_pct: ${sb}` : ''
+		const as = `
+  - type: turn_on
+    device_id: ${deviceId}
+    entity_id: ${sn}
+    domain: ${sn.split('.')[0]}${sbs}`
+		return as
+	}).join('')
+	// const action = `
+  // - service: scene.turn_on
+  //   target: 
+  //     entity_id: scene.${nightSceneIdPrefix}${entityIdFromName(scene)}
+  //   metadata: {}`
 	const s = `
 - id: '${id}'
   alias: ${alias}
@@ -88,6 +217,10 @@ function getOnString( a, beforeSunrise, afterSunrise ) {
   mode: single
 `
 	return s
+}
+
+function getOnStrings( a, beforeSunrise, afterSunrise ) {
+	return a.switches.map( sw => getOnStringSingleAction( a, beforeSunrise, afterSunrise, sw ) ).join( '' )
 }
 
 // function getSceneLight( lightString ) {
@@ -286,10 +419,10 @@ function getAutomationString( automations ) {
 	let switchesObject = {}
 	automations.forEach( a => {
 		if( a.night ) {
-			configurationOutputString += getOnString( a, true, false )
-			configurationOutputString += getOnString( a, false, true )
+			configurationOutputString += getOnStrings( a, true, false )
+			configurationOutputString += getOnStrings( a, false, true )
 		} else {
-			configurationOutputString += getOnString( a, false, false )
+			configurationOutputString += getOnStrings( a, false, false )
 		}
 		switchesObject = getSwitchesObject( a, switchesObject )
 		sceneOutputString += getSceneString( a )
