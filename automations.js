@@ -44,7 +44,7 @@ export const automations = [
 		name: 'Dining Room',
 		night: 20,
 		sensors: [ 'binary_sensor.dining_room_ecolink_b_r11_sensor_state_any' ],
-		switches: [ 'light.dining_room_lights', 'light.chandelier', 'light.living_room_lights', 'light.kitchen_lights', 'switch.entryway_christmas_lights' ],
+		switches: [ 'light.dining_room_lights', 'light.chandelier', 'light.living_room_lights', 'light.kitchen_lights', 'light.fridge_top_light', 'switch.entryway_christmas_lights' ],
 	},
 	{
 		name: 'Dining Room Stereo',
@@ -55,12 +55,12 @@ export const automations = [
 	{
 		name: 'Living Room',
 		sensors: [ 'binary_sensor.living_room_ecolink_r5_sensor_state_any' ],
-		switches: [ 'light.living_room_lights', 'light.dining_room_lights', 'light.kitchen_lights', 'switch.entryway_christmas_lights' ],
+		switches: [ 'light.living_room_lights', 'light.dining_room_lights', 'light.kitchen_lights', 'light.fridge_top_light', 'switch.entryway_christmas_lights' ],
 	},
 	{
 		name: 'Kitchen',
 		sensors: [ 'binary_sensor.kitchen_ecolink_r2_sensor_state_any' ],
-		switches: [ 'light.kitchen_lights' ],
+		switches: [ 'light.kitchen_lights', 'light.fridge_top_light' ],
 	},
 	{
 		name: 'Garage Breezeway',
@@ -102,13 +102,13 @@ export const automations = [
 	{
 		name: 'Game nook',
 		sensors: [ 'binary_sensor.game_nook_ecolink_r4_sensor_state_any' ],
-		switches: [ 'light.stairtop_lights', 'light.stairwell_light', 'switch.tv_lamps', 'switch.bar_lights' ],
+		switches: [ 'light.stairtop_lights', 'light.stairwell_light', 'switch.tv_lamps', 'switch.bar2_lights' ],
 		allDay: true,
 	},
 	{
 		name: 'Bar lights with lava lamp',
 		sensors: [ 'binary_sensor.bar_ecolink_n2_motion_detection' ],
-		switches: [ 'light.stairwell_light', 'switch.tv_lamps', 'switch.bar_lights', 'light.blue_room_light', 'light.blue_room_lamp', 'light.qbr_lamp', 'light.qbr_light' ],
+		switches: [ 'light.stairwell_light', 'switch.tv_lamps', 'switch.bar2_lights', 'light.blue_room_light', 'light.blue_room_lamp', 'light.qbr_lamp', 'light.qbr_light' ],
 		allDay: true,
 	},
 	{

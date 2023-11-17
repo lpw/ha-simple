@@ -154,10 +154,12 @@ function getAllOffCondition( a ) {
 // 	return s
 // }
 
-function getOnStringSingleAction( a, beforeSunrise, afterSunrise, sw ) {
+function getOnStringSingleAction( a, hasNightMode, isNightMode, sw ) {
+	console.assert( !( isNightMode && !hasNightMode ), '( isNightMode && !hasNightMode )' )
+	console.assert( !hasNightMode || hasNightMode && ( +a.night > 0 || +a.night < 100 ), '!hasNightMode || hasNightMode && ( +a.night > 0 || +a.night < 100 )' )
 	const swName = sw.split( ':' )[ 0 ]
-	const nightSceneIdPrefix = beforeSunrise ? 'night_' : ''
-	const nightSceneNamePrefix = beforeSunrise ? 'Night ' : ''
+	const nightSceneIdPrefix = isNightMode ? 'night_' : ''
+	const nightSceneNamePrefix = isNightMode ? 'Night ' : ''
 	const id = `id_on ${nightSceneIdPrefix}${a.name} ${swName}`
 	const alias = `Turn on ${nightSceneNamePrefix}${a.name} ${swName}`
 	const description = `Turn on ${nightSceneNamePrefix}${a.name} ${swName}`
@@ -176,30 +178,33 @@ function getOnStringSingleAction( a, beforeSunrise, afterSunrise, sw ) {
   - condition: state
     entity_id: sun.sun
     state: below_horizon` : ''
-	const beforeSunriseCondition = beforeSunrise ? `
+	const isNightModeCondition = hasNightMode && isNightMode ? `
   - condition: or
     conditions:
     - condition: time
       after: '22:00:00'
     - condition: sun
       before: sunrise` : ''
-	const afterSunriseCondition = afterSunrise ? `
+	const hasNightModeCondition = hasNightMode && !isNightMode ? `
   - condition: sun
-    after: sunrise` : ''
+    after: sunrise
+  - condition: time
+    before: '22:00:00'` : ''
 	// const allOffCondition = ''	// getAllOffCondition( a )
 	const allOffCondition = getOffCondition( sw )
-  const conditions = `${notAllDayCondition}${beforeSunriseCondition}${afterSunriseCondition}${allOffCondition}` || '[]'
+  const conditions = `${notAllDayCondition}${isNightModeCondition}${hasNightModeCondition}${allOffCondition}` || '[]'
 	const action = [ sw ].map( s => {
 		const sn = sw.split( ':' )[ 0 ]
 		const sb = sw.split( ':' )[ 1 ] 
+		const bp = hasNightMode ? `${ +( sb || '100' ) * a.night }` : sb
 		const deviceId = getDeviceIdFromName( sn )
-		const sbs = sb ? `
-    brightness_pct: ${sb}` : ''
+		const bps = bp ? `
+    brightness_pct: ${bp}` : ''
 		const as = `
   - type: turn_on
     device_id: ${deviceId}
     entity_id: ${sn}
-    domain: ${sn.split('.')[0]}${sbs}`
+    domain: ${sn.split('.')[0]}${bps}`
 		return as
 	}).join('')
 	// const action = `
@@ -219,8 +224,8 @@ function getOnStringSingleAction( a, beforeSunrise, afterSunrise, sw ) {
 	return s
 }
 
-function getOnStrings( a, beforeSunrise, afterSunrise ) {
-	return a.switches.map( sw => getOnStringSingleAction( a, beforeSunrise, afterSunrise, sw ) ).join( '' )
+function getOnStrings( a, hasNightMode, isNightMode ) {
+	return a.switches.map( sw => getOnStringSingleAction( a, hasNightMode, isNightMode, sw ) ).join( '' )
 }
 
 // function getSceneLight( lightString ) {
@@ -420,7 +425,7 @@ function getAutomationString( automations ) {
 	automations.forEach( a => {
 		if( a.night ) {
 			configurationOutputString += getOnStrings( a, true, false )
-			configurationOutputString += getOnStrings( a, false, true )
+			configurationOutputString += getOnStrings( a, true, true )
 		} else {
 			configurationOutputString += getOnStrings( a, false, false )
 		}
