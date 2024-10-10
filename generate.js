@@ -196,7 +196,7 @@ function getOnStringSingleAction( a, hasNightMode, isNightMode, sw ) {
 	const action = [ sw ].map( s => {
 		const sn = sw.split( ':' )[ 0 ]
 		const sb = sw.split( ':' )[ 1 ] 
-		const bp = hasNightMode ? `${ +( sb || '100' ) * a.night }` : sb
+		const bp = isNightMode ? `${ +( sb || '100' ) * a.night / 100 }` : sb
 		const deviceId = getDeviceIdFromName( sn )
 		const bps = bp ? `
     brightness_pct: ${bp}` : ''

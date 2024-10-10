@@ -102,13 +102,13 @@ export const automations = [
 	{
 		name: 'Game nook',
 		sensors: [ 'binary_sensor.game_nook_ecolink_r4_sensor_state_any' ],
-		switches: [ 'light.stairtop_lights', 'light.stairwell_light', 'switch.tv_lamps', 'switch.bar2_lights' ],
+		switches: [ 'light.stairtop_lights', 'light.stairwell_light', 'switch.tv_lamps', 'switch.bar_lights' ],
 		allDay: true,
 	},
 	{
 		name: 'Bar lights with lava lamp',
 		sensors: [ 'binary_sensor.bar_ecolink_n2_motion_detection' ],
-		switches: [ 'light.stairwell_light', 'switch.tv_lamps', 'switch.bar2_lights', 'light.blue_room_light', 'light.blue_room_lamp', 'light.qbr_lamp', 'light.qbr_light' ],
+		switches: [ 'light.stairwell_light', 'switch.tv_lamps', 'switch.bar_lights', 'light.blue_room_light', 'light.blue_room_lamp', 'light.qbr_lamp', 'light.qbr_light' ],
 		allDay: true,
 	},
 	{
