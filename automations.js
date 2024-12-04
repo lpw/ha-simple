@@ -14,7 +14,7 @@ export const automations = [
 	{
 		name: 'MBR',
 		sensors: [ 'binary_sensor.mbr_ecolink_r8_sensor_state_any' ],
-		switches: [ 'light.bedroom_lights', 'light.bedroom_spotlight', 'light.deco_lamp' ],
+		switches: [ 'light.bedroom_lights', 'light.deco_lamp' ],
 	},
 	{
 		name: 'MBA',
@@ -44,7 +44,7 @@ export const automations = [
 		name: 'Dining Room',
 		night: 20,
 		sensors: [ 'binary_sensor.dining_room_ecolink_b_r11_sensor_state_any' ],
-		switches: [ 'light.dining_room_lights', 'light.chandelier', 'light.living_room_lights', 'light.kitchen_lights', 'light.fridge_top_light', 'switch.entryway_christmas_lights' ],
+		switches: [ 'light.dining_room_lights', 'light.chandelier', 'light.living_room_lights', 'light.kitchen_lights', 'light.fridge_top_light' ],
 	},
 	{
 		name: 'Dining Room Stereo',
@@ -55,7 +55,7 @@ export const automations = [
 	{
 		name: 'Living Room',
 		sensors: [ 'binary_sensor.living_room_ecolink_r5_sensor_state_any' ],
-		switches: [ 'light.living_room_lights', 'light.dining_room_lights', 'light.kitchen_lights', 'light.fridge_top_light', 'switch.entryway_christmas_lights' ],
+		switches: [ 'light.living_room_lights', 'light.dining_room_lights', 'light.kitchen_lights', 'light.fridge_top_light' ],
 	},
 	{
 		name: 'Kitchen',
@@ -119,7 +119,7 @@ export const automations = [
 	{
 		name: 'Frontyard and Folly',
 		sensors: [ 'binary_sensor.porch_ecolink_motion_detection' ],
-		switches: [ 'light.porch', 'light.foyer', 'switch.bedroom_eve', 'switch.garage_eve', 'switch.folly' ],
+		switches: [ 'light.porch_lights', 'light.foyer', 'switch.bedroom_eve', 'switch.garage_eve', 'switch.folly', 'switch.circle_lights' ],
 	},
 	{
 		name: 'Sideyard',
@@ -157,6 +157,7 @@ export const automations = [
 			'light.bathtub_light',
 			'switch.bathroom_lights',
 			'light.bedside_light',
+			'light.bedroom_spotlight',
 			'light.skylight',
 			'light.dbr_lamp',
 			'light.side_yard_flood_light',	// ?
@@ -169,7 +170,6 @@ export const automations = [
 			'switch.driveway_light',
 			'switch.fireplace',
 			'switch.porch_christmas_lights',
-			'switch.entryway_christmas_lights',
 			'switch.rv_heat',
 			'switch.christmas_tree_lights',
 			'switch.christmas_tree_lights',
