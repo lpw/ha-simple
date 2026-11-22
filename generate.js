@@ -196,7 +196,7 @@ function getOnStringSingleAction( a, hasNightMode, isNightMode, sw ) {
 	const action = [ sw ].map( s => {
 		const sn = sw.split( ':' )[ 0 ]
 		const sb = sw.split( ':' )[ 1 ] 
-		const bp = isNightMode ? `${ +( sb || '100' ) * a.night / 100 }` : sb
+		const bp = hasNightMode ? `${ +( sb || '100' ) * a.night }` : sb
 		const deviceId = getDeviceIdFromName( sn )
 		const bps = bp ? `
     brightness_pct: ${bp}` : ''
@@ -217,7 +217,7 @@ function getOnStringSingleAction( a, hasNightMode, isNightMode, sw ) {
   alias: ${alias}
   description: '${description}'
   trigger: ${trigger}
-  condition: ${conditions}
+  conditions: ${conditions}
   action: ${action}
   mode: single
 `
@@ -307,24 +307,44 @@ function getSceneString( a, night ) {
 function getOffSwitchString( a, swString ) {
 	const sw = swString.split( ':' )[ 0 ]
 	const deviceId = getDeviceIdFromName( sw )
-	const conditions = []
 	const time = a.time || 3600
+
+	const conditionsRegular = []
 	const switchUpdatedCondition = `
-  - condition: template
-    value_template: '{{ as_timestamp(now()) - as_timestamp(states.${sw}.last_updated) > ${time} }}'`
-  conditions.push( switchUpdatedCondition )
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.${sw}.last_updated) > ${time} }}'`
+  conditionsRegular.push( switchUpdatedCondition )
 	const switchOnCondition = `
-  - condition: template
-    value_template: '{{ states.${sw}.state == "on" }}'`
-  conditions.push( switchOnCondition )
+        - condition: template
+          value_template: '{{ states.${sw}.state == "on" }}'`
+  conditionsRegular.push( switchOnCondition )
 	const sensorOffConditions = a.sensors.map( ss => {
 		const deviceId = getDeviceIdFromName( ss )
 		const sensorOffCondition = `
-  - condition: template
-    value_template: '{{ as_timestamp(now()) - as_timestamp(states.${ss}.last_updated) > ${time} }}'`
-	  conditions.push( sensorOffCondition )
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.${ss}.last_updated) > ${time} }}'`
+	  conditionsRegular.push( sensorOffCondition )
 	})
-	return conditions.join( '' )
+
+	const conditionsForce = []
+	const switchUpdatedConditionForce = `
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.${sw}.last_updated) > ${time * 10} }}'`
+  conditionsForce.push( switchUpdatedConditionForce )
+	const sensorOffConditionsForce = a.sensors.map( ss => {
+		const deviceId = getDeviceIdFromName( ss )
+		const sensorOffCondition = `
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.${ss}.last_updated) > ${time * 10} }}'`
+	  conditionsForce.push( sensorOffCondition )
+	})
+
+	const conditions = `
+    - or:
+      - condition: ${conditionsRegular.join( '' )}
+      - condition: ${conditionsForce.join( '' )}`
+
+	return conditions
 }
 
 function getSwitchesObject( a, switchesObject ) {
@@ -411,7 +431,7 @@ function getOffString( swString, conditions ) {
   alias: ${alias}
   description: '${description}'
   trigger: ${trigger}
-  condition: ${conditions}
+  conditions: ${conditions}
   action: ${action}
   mode: single
 `

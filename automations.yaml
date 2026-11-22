@@ -1,0 +1,3902 @@
+
+- id: 'id_on Office Lights light.office_lights'
+  alias: Turn on Office Lights light.office_lights
+  description: 'Turn on Office Lights light.office_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: b8d59298317b2fabee66cddad7a201db
+    entity_id: binary_sensor.office_ecolink_r12
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.light.office_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 2b4a608bbc48e9caf0c797d5c99e5edf
+    entity_id: light.office_lights
+    domain: light
+  mode: single
+
+- id: 'id_on MBR light.bedroom_lights'
+  alias: Turn on MBR light.bedroom_lights
+  description: 'Turn on MBR light.bedroom_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 5e70936b6da888d6aa13b54a1fe5bec9
+    entity_id: binary_sensor.mbr_ecolink_r8_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.bedroom_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: c009ceb6c1ad7396c51f14e30245477e
+    entity_id: light.bedroom_lights
+    domain: light
+  mode: single
+
+- id: 'id_on MBR light.bedroom_spotlight'
+  alias: Turn on MBR light.bedroom_spotlight
+  description: 'Turn on MBR light.bedroom_spotlight'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 5e70936b6da888d6aa13b54a1fe5bec9
+    entity_id: binary_sensor.mbr_ecolink_r8_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.bedroom_spotlight.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 5d2b9e87091d9e1887cc9f8ebe27ca19
+    entity_id: light.bedroom_spotlight
+    domain: light
+  mode: single
+
+- id: 'id_on MBR light.deco_lamp'
+  alias: Turn on MBR light.deco_lamp
+  description: 'Turn on MBR light.deco_lamp'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 5e70936b6da888d6aa13b54a1fe5bec9
+    entity_id: binary_sensor.mbr_ecolink_r8_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.deco_lamp.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: a72025ffe437693b4c4407a3617c1ce6
+    entity_id: light.deco_lamp
+    domain: light
+  mode: single
+
+- id: 'id_on MBA light.nicolas_mirror_lights'
+  alias: Turn on MBA light.nicolas_mirror_lights
+  description: 'Turn on MBA light.nicolas_mirror_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 617ba33567c52f725f240c936b0da4d2
+    entity_id: binary_sensor.mba_ecolink_n3_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: sun
+    after: sunrise
+  - condition: time
+    before: '22:00:00'
+  - condition: template
+    value_template: '{{ states.light.nicolas_mirror_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: dba68bd6f4658d5e7c77af3ce71f3686
+    entity_id: light.nicolas_mirror_lights
+    domain: light
+    brightness_pct: 1000
+  mode: single
+
+- id: 'id_on MBA light.lances_mirror_lights'
+  alias: Turn on MBA light.lances_mirror_lights
+  description: 'Turn on MBA light.lances_mirror_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 617ba33567c52f725f240c936b0da4d2
+    entity_id: binary_sensor.mba_ecolink_n3_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: sun
+    after: sunrise
+  - condition: time
+    before: '22:00:00'
+  - condition: template
+    value_template: '{{ states.light.lances_mirror_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 603094a34d2c55ba6519828baf98c059
+    entity_id: light.lances_mirror_lights
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on MBA light.deco_lamp'
+  alias: Turn on MBA light.deco_lamp
+  description: 'Turn on MBA light.deco_lamp'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 617ba33567c52f725f240c936b0da4d2
+    entity_id: binary_sensor.mba_ecolink_n3_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: sun
+    after: sunrise
+  - condition: time
+    before: '22:00:00'
+  - condition: template
+    value_template: '{{ states.light.deco_lamp.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: a72025ffe437693b4c4407a3617c1ce6
+    entity_id: light.deco_lamp
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on night_MBA light.nicolas_mirror_lights'
+  alias: Turn on Night MBA light.nicolas_mirror_lights
+  description: 'Turn on Night MBA light.nicolas_mirror_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 617ba33567c52f725f240c936b0da4d2
+    entity_id: binary_sensor.mba_ecolink_n3_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: or
+    conditions:
+    - condition: time
+      after: '22:00:00'
+    - condition: sun
+      before: sunrise
+  - condition: template
+    value_template: '{{ states.light.nicolas_mirror_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: dba68bd6f4658d5e7c77af3ce71f3686
+    entity_id: light.nicolas_mirror_lights
+    domain: light
+    brightness_pct: 1000
+  mode: single
+
+- id: 'id_on night_MBA light.lances_mirror_lights'
+  alias: Turn on Night MBA light.lances_mirror_lights
+  description: 'Turn on Night MBA light.lances_mirror_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 617ba33567c52f725f240c936b0da4d2
+    entity_id: binary_sensor.mba_ecolink_n3_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: or
+    conditions:
+    - condition: time
+      after: '22:00:00'
+    - condition: sun
+      before: sunrise
+  - condition: template
+    value_template: '{{ states.light.lances_mirror_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 603094a34d2c55ba6519828baf98c059
+    entity_id: light.lances_mirror_lights
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on night_MBA light.deco_lamp'
+  alias: Turn on Night MBA light.deco_lamp
+  description: 'Turn on Night MBA light.deco_lamp'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 617ba33567c52f725f240c936b0da4d2
+    entity_id: binary_sensor.mba_ecolink_n3_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: or
+    conditions:
+    - condition: time
+      after: '22:00:00'
+    - condition: sun
+      before: sunrise
+  - condition: template
+    value_template: '{{ states.light.deco_lamp.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: a72025ffe437693b4c4407a3617c1ce6
+    entity_id: light.deco_lamp
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on DBR light.dbr_lamp'
+  alias: Turn on DBR light.dbr_lamp
+  description: 'Turn on DBR light.dbr_lamp'
+  trigger: 
+  conditions: 
+  - condition: template
+    value_template: '{{ states.light.dbr_lamp.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 278d0e90dc72db435472e17c50205ce5
+    entity_id: light.dbr_lamp
+    domain: light
+  mode: single
+
+- id: 'id_on QBR light.qbr_lamp'
+  alias: Turn on QBR light.qbr_lamp
+  description: 'Turn on QBR light.qbr_lamp'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 32253434859a35cde3ab67ac51d26855
+    entity_id: binary_sensor.qbr_ecolink_r3_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.light.qbr_lamp.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: f0a992d1da9441a2307161debade7f42
+    entity_id: light.qbr_lamp
+    domain: light
+  mode: single
+
+- id: 'id_on Blue room light light.blue_room_lamp'
+  alias: Turn on Blue room light light.blue_room_lamp
+  description: 'Turn on Blue room light light.blue_room_lamp'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: cc3629280ef97be9c082088ef8165d2e
+    entity_id: binary_sensor.blue_room_ecolink_n1_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.light.blue_room_lamp.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 3b9778f894b5b7728cfd30ca6f4ffb0b
+    entity_id: light.blue_room_lamp
+    domain: light
+  mode: single
+
+- id: 'id_on Blue room light light.blue_room_light'
+  alias: Turn on Blue room light light.blue_room_light
+  description: 'Turn on Blue room light light.blue_room_light'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: cc3629280ef97be9c082088ef8165d2e
+    entity_id: binary_sensor.blue_room_ecolink_n1_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.light.blue_room_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: d2bf06ddc473fc7fcdeb5dd31772b631
+    entity_id: light.blue_room_light
+    domain: light
+  mode: single
+
+- id: 'id_on Dining Room light.dining_room_lights'
+  alias: Turn on Dining Room light.dining_room_lights
+  description: 'Turn on Dining Room light.dining_room_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 900946041778191947bd9c4128a6efbe
+    entity_id: binary_sensor.dining_room_ecolink_b_r11_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: sun
+    after: sunrise
+  - condition: time
+    before: '22:00:00'
+  - condition: template
+    value_template: '{{ states.light.dining_room_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 91d9af73f11624667e0191a4415d7165
+    entity_id: light.dining_room_lights
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on Dining Room light.chandelier'
+  alias: Turn on Dining Room light.chandelier
+  description: 'Turn on Dining Room light.chandelier'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 900946041778191947bd9c4128a6efbe
+    entity_id: binary_sensor.dining_room_ecolink_b_r11_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: sun
+    after: sunrise
+  - condition: time
+    before: '22:00:00'
+  - condition: template
+    value_template: '{{ states.light.chandelier.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 47f3a0ea4425d4ba8d2705c340192390
+    entity_id: light.chandelier
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on Dining Room light.living_room_lights'
+  alias: Turn on Dining Room light.living_room_lights
+  description: 'Turn on Dining Room light.living_room_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 900946041778191947bd9c4128a6efbe
+    entity_id: binary_sensor.dining_room_ecolink_b_r11_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: sun
+    after: sunrise
+  - condition: time
+    before: '22:00:00'
+  - condition: template
+    value_template: '{{ states.light.living_room_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 6c87c049f59a1908188dade6850eaa28
+    entity_id: light.living_room_lights
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on Dining Room light.kitchen_lights'
+  alias: Turn on Dining Room light.kitchen_lights
+  description: 'Turn on Dining Room light.kitchen_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 900946041778191947bd9c4128a6efbe
+    entity_id: binary_sensor.dining_room_ecolink_b_r11_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: sun
+    after: sunrise
+  - condition: time
+    before: '22:00:00'
+  - condition: template
+    value_template: '{{ states.light.kitchen_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 6d7d0d2ad5f63e0bb5cdc8b195ad26ea
+    entity_id: light.kitchen_lights
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on Dining Room light.fridge_top_light'
+  alias: Turn on Dining Room light.fridge_top_light
+  description: 'Turn on Dining Room light.fridge_top_light'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 900946041778191947bd9c4128a6efbe
+    entity_id: binary_sensor.dining_room_ecolink_b_r11_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: sun
+    after: sunrise
+  - condition: time
+    before: '22:00:00'
+  - condition: template
+    value_template: '{{ states.light.fridge_top_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 63f2f6623e2f791d1d0df1a687d5baa7
+    entity_id: light.fridge_top_light
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on Dining Room light.entryway_christmas_lights_basic'
+  alias: Turn on Dining Room light.entryway_christmas_lights_basic
+  description: 'Turn on Dining Room light.entryway_christmas_lights_basic'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 900946041778191947bd9c4128a6efbe
+    entity_id: binary_sensor.dining_room_ecolink_b_r11_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: sun
+    after: sunrise
+  - condition: time
+    before: '22:00:00'
+  - condition: template
+    value_template: '{{ states.light.entryway_christmas_lights_basic.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 92cc962771db4a9f1d84925958e59067
+    entity_id: light.entryway_christmas_lights_basic
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on night_Dining Room light.dining_room_lights'
+  alias: Turn on Night Dining Room light.dining_room_lights
+  description: 'Turn on Night Dining Room light.dining_room_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 900946041778191947bd9c4128a6efbe
+    entity_id: binary_sensor.dining_room_ecolink_b_r11_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: or
+    conditions:
+    - condition: time
+      after: '22:00:00'
+    - condition: sun
+      before: sunrise
+  - condition: template
+    value_template: '{{ states.light.dining_room_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 91d9af73f11624667e0191a4415d7165
+    entity_id: light.dining_room_lights
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on night_Dining Room light.chandelier'
+  alias: Turn on Night Dining Room light.chandelier
+  description: 'Turn on Night Dining Room light.chandelier'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 900946041778191947bd9c4128a6efbe
+    entity_id: binary_sensor.dining_room_ecolink_b_r11_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: or
+    conditions:
+    - condition: time
+      after: '22:00:00'
+    - condition: sun
+      before: sunrise
+  - condition: template
+    value_template: '{{ states.light.chandelier.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 47f3a0ea4425d4ba8d2705c340192390
+    entity_id: light.chandelier
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on night_Dining Room light.living_room_lights'
+  alias: Turn on Night Dining Room light.living_room_lights
+  description: 'Turn on Night Dining Room light.living_room_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 900946041778191947bd9c4128a6efbe
+    entity_id: binary_sensor.dining_room_ecolink_b_r11_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: or
+    conditions:
+    - condition: time
+      after: '22:00:00'
+    - condition: sun
+      before: sunrise
+  - condition: template
+    value_template: '{{ states.light.living_room_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 6c87c049f59a1908188dade6850eaa28
+    entity_id: light.living_room_lights
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on night_Dining Room light.kitchen_lights'
+  alias: Turn on Night Dining Room light.kitchen_lights
+  description: 'Turn on Night Dining Room light.kitchen_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 900946041778191947bd9c4128a6efbe
+    entity_id: binary_sensor.dining_room_ecolink_b_r11_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: or
+    conditions:
+    - condition: time
+      after: '22:00:00'
+    - condition: sun
+      before: sunrise
+  - condition: template
+    value_template: '{{ states.light.kitchen_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 6d7d0d2ad5f63e0bb5cdc8b195ad26ea
+    entity_id: light.kitchen_lights
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on night_Dining Room light.fridge_top_light'
+  alias: Turn on Night Dining Room light.fridge_top_light
+  description: 'Turn on Night Dining Room light.fridge_top_light'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 900946041778191947bd9c4128a6efbe
+    entity_id: binary_sensor.dining_room_ecolink_b_r11_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: or
+    conditions:
+    - condition: time
+      after: '22:00:00'
+    - condition: sun
+      before: sunrise
+  - condition: template
+    value_template: '{{ states.light.fridge_top_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 63f2f6623e2f791d1d0df1a687d5baa7
+    entity_id: light.fridge_top_light
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on night_Dining Room light.entryway_christmas_lights_basic'
+  alias: Turn on Night Dining Room light.entryway_christmas_lights_basic
+  description: 'Turn on Night Dining Room light.entryway_christmas_lights_basic'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 900946041778191947bd9c4128a6efbe
+    entity_id: binary_sensor.dining_room_ecolink_b_r11_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: or
+    conditions:
+    - condition: time
+      after: '22:00:00'
+    - condition: sun
+      before: sunrise
+  - condition: template
+    value_template: '{{ states.light.entryway_christmas_lights_basic.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 92cc962771db4a9f1d84925958e59067
+    entity_id: light.entryway_christmas_lights_basic
+    domain: light
+    brightness_pct: 2000
+  mode: single
+
+- id: 'id_on Dining Room Stereo switch.stereo'
+  alias: Turn on Dining Room Stereo switch.stereo
+  description: 'Turn on Dining Room Stereo switch.stereo'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 900946041778191947bd9c4128a6efbe
+    entity_id: binary_sensor.dining_room_ecolink_b_r11_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.switch.stereo.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 79fca2fd256c30788e09b32961ec7f80
+    entity_id: switch.stereo
+    domain: switch
+  mode: single
+
+- id: 'id_on Living Room light.living_room_lights'
+  alias: Turn on Living Room light.living_room_lights
+  description: 'Turn on Living Room light.living_room_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: d7d69154a70a588e42a53285a58f77e8
+    entity_id: binary_sensor.living_room_ecolink_r5_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.living_room_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 6c87c049f59a1908188dade6850eaa28
+    entity_id: light.living_room_lights
+    domain: light
+  mode: single
+
+- id: 'id_on Living Room light.dining_room_lights'
+  alias: Turn on Living Room light.dining_room_lights
+  description: 'Turn on Living Room light.dining_room_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: d7d69154a70a588e42a53285a58f77e8
+    entity_id: binary_sensor.living_room_ecolink_r5_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.dining_room_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 91d9af73f11624667e0191a4415d7165
+    entity_id: light.dining_room_lights
+    domain: light
+  mode: single
+
+- id: 'id_on Living Room light.kitchen_lights'
+  alias: Turn on Living Room light.kitchen_lights
+  description: 'Turn on Living Room light.kitchen_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: d7d69154a70a588e42a53285a58f77e8
+    entity_id: binary_sensor.living_room_ecolink_r5_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.kitchen_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 6d7d0d2ad5f63e0bb5cdc8b195ad26ea
+    entity_id: light.kitchen_lights
+    domain: light
+  mode: single
+
+- id: 'id_on Living Room light.fridge_top_light'
+  alias: Turn on Living Room light.fridge_top_light
+  description: 'Turn on Living Room light.fridge_top_light'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: d7d69154a70a588e42a53285a58f77e8
+    entity_id: binary_sensor.living_room_ecolink_r5_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.fridge_top_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 63f2f6623e2f791d1d0df1a687d5baa7
+    entity_id: light.fridge_top_light
+    domain: light
+  mode: single
+
+- id: 'id_on Living Room light.entryway_christmas_lights_basic'
+  alias: Turn on Living Room light.entryway_christmas_lights_basic
+  description: 'Turn on Living Room light.entryway_christmas_lights_basic'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: d7d69154a70a588e42a53285a58f77e8
+    entity_id: binary_sensor.living_room_ecolink_r5_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.entryway_christmas_lights_basic.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 92cc962771db4a9f1d84925958e59067
+    entity_id: light.entryway_christmas_lights_basic
+    domain: light
+  mode: single
+
+- id: 'id_on Kitchen light.kitchen_lights'
+  alias: Turn on Kitchen light.kitchen_lights
+  description: 'Turn on Kitchen light.kitchen_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: a224beacd32e9bd21dd7f88e77b54db5
+    entity_id: binary_sensor.kitchen_ecolink_r2_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.kitchen_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 6d7d0d2ad5f63e0bb5cdc8b195ad26ea
+    entity_id: light.kitchen_lights
+    domain: light
+  mode: single
+
+- id: 'id_on Kitchen light.fridge_top_light'
+  alias: Turn on Kitchen light.fridge_top_light
+  description: 'Turn on Kitchen light.fridge_top_light'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: a224beacd32e9bd21dd7f88e77b54db5
+    entity_id: binary_sensor.kitchen_ecolink_r2_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.fridge_top_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 63f2f6623e2f791d1d0df1a687d5baa7
+    entity_id: light.fridge_top_light
+    domain: light
+  mode: single
+
+- id: 'id_on Garage Breezeway switch.garage_lights'
+  alias: Turn on Garage Breezeway switch.garage_lights
+  description: 'Turn on Garage Breezeway switch.garage_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: f7ff59514c552a41c9953370ff7e15d5
+    entity_id: binary_sensor.garage_ecolink_r6_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.switch.garage_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 8963e9d3e15e7242ad86bc53ca90abf1
+    entity_id: switch.garage_lights
+    domain: switch
+  mode: single
+
+- id: 'id_on Garage Breezeway switch.garage_stereo'
+  alias: Turn on Garage Breezeway switch.garage_stereo
+  description: 'Turn on Garage Breezeway switch.garage_stereo'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: f7ff59514c552a41c9953370ff7e15d5
+    entity_id: binary_sensor.garage_ecolink_r6_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.switch.garage_stereo.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: e5b13058bd21d562c5bd16e63be0def1
+    entity_id: switch.garage_stereo
+    domain: switch
+  mode: single
+
+- id: 'id_on Garage Breezeway switch.garage_eve'
+  alias: Turn on Garage Breezeway switch.garage_eve
+  description: 'Turn on Garage Breezeway switch.garage_eve'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: f7ff59514c552a41c9953370ff7e15d5
+    entity_id: binary_sensor.garage_ecolink_r6_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.switch.garage_eve.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: a907586bb2e540b96de901a601965ea8
+    entity_id: switch.garage_eve
+    domain: switch
+  mode: single
+
+- id: 'id_on Garage Breezeway switch.breezeway_lights'
+  alias: Turn on Garage Breezeway switch.breezeway_lights
+  description: 'Turn on Garage Breezeway switch.breezeway_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: f7ff59514c552a41c9953370ff7e15d5
+    entity_id: binary_sensor.garage_ecolink_r6_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.switch.breezeway_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 2d9b07c69773e8bad5b488ff9b34dbb6
+    entity_id: switch.breezeway_lights
+    domain: switch
+  mode: single
+
+- id: 'id_on Garage Far switch.garage_lights'
+  alias: Turn on Garage Far switch.garage_lights
+  description: 'Turn on Garage Far switch.garage_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 9c137f86480cc4aa20260f0818525d74
+    entity_id: binary_sensor.garage_ecolink_two_r21_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.switch.garage_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 8963e9d3e15e7242ad86bc53ca90abf1
+    entity_id: switch.garage_lights
+    domain: switch
+  mode: single
+
+- id: 'id_on Garage Far switch.garage_stereo'
+  alias: Turn on Garage Far switch.garage_stereo
+  description: 'Turn on Garage Far switch.garage_stereo'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 9c137f86480cc4aa20260f0818525d74
+    entity_id: binary_sensor.garage_ecolink_two_r21_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.switch.garage_stereo.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: e5b13058bd21d562c5bd16e63be0def1
+    entity_id: switch.garage_stereo
+    domain: switch
+  mode: single
+
+- id: 'id_on Garage Far switch.garage_eve'
+  alias: Turn on Garage Far switch.garage_eve
+  description: 'Turn on Garage Far switch.garage_eve'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 9c137f86480cc4aa20260f0818525d74
+    entity_id: binary_sensor.garage_ecolink_two_r21_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.switch.garage_eve.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: a907586bb2e540b96de901a601965ea8
+    entity_id: switch.garage_eve
+    domain: switch
+  mode: single
+
+- id: 'id_on Garage Far light.garage_back_door_light'
+  alias: Turn on Garage Far light.garage_back_door_light
+  description: 'Turn on Garage Far light.garage_back_door_light'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 9c137f86480cc4aa20260f0818525d74
+    entity_id: binary_sensor.garage_ecolink_two_r21_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.light.garage_back_door_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 8902ab71c32f610e53bd7502b935933e
+    entity_id: light.garage_back_door_light
+    domain: light
+  mode: single
+
+- id: 'id_on Breezeway Garage switch.breezeway_lights'
+  alias: Turn on Breezeway Garage switch.breezeway_lights
+  description: 'Turn on Breezeway Garage switch.breezeway_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: ba733a578b43eef1f884dae717359adf
+    entity_id: binary_sensor.breezeway_ecolink_two_r22_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.breezeway_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 2d9b07c69773e8bad5b488ff9b34dbb6
+    entity_id: switch.breezeway_lights
+    domain: switch
+  mode: single
+
+- id: 'id_on Breezeway Garage switch.garage_lights'
+  alias: Turn on Breezeway Garage switch.garage_lights
+  description: 'Turn on Breezeway Garage switch.garage_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: ba733a578b43eef1f884dae717359adf
+    entity_id: binary_sensor.breezeway_ecolink_two_r22_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.garage_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 8963e9d3e15e7242ad86bc53ca90abf1
+    entity_id: switch.garage_lights
+    domain: switch
+  mode: single
+
+- id: 'id_on Breezeway Near switch.breezeway_lights'
+  alias: Turn on Breezeway Near switch.breezeway_lights
+  description: 'Turn on Breezeway Near switch.breezeway_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 4d5166ffa7a11288a7f85be4df6ed163
+    entity_id: binary_sensor.breezeway_ecolink_r7_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.breezeway_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 2d9b07c69773e8bad5b488ff9b34dbb6
+    entity_id: switch.breezeway_lights
+    domain: switch
+  mode: single
+
+- id: 'id_on Breezeway Near light.dog_room_lights'
+  alias: Turn on Breezeway Near light.dog_room_lights
+  description: 'Turn on Breezeway Near light.dog_room_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 4d5166ffa7a11288a7f85be4df6ed163
+    entity_id: binary_sensor.breezeway_ecolink_r7_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.dog_room_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 0979bd1905d67faea8f9cab3cb074fcd
+    entity_id: light.dog_room_lights
+    domain: light
+  mode: single
+
+- id: 'id_on Dog Room light.dog_room_lights'
+  alias: Turn on Dog Room light.dog_room_lights
+  description: 'Turn on Dog Room light.dog_room_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: ade1881c09d756a139244f39158bbd37
+    entity_id: binary_sensor.dog_room_ecolink_dr1_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.dog_room_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 0979bd1905d67faea8f9cab3cb074fcd
+    entity_id: light.dog_room_lights
+    domain: light
+  mode: single
+
+- id: 'id_on Dog Room light.dining_room_lights'
+  alias: Turn on Dog Room light.dining_room_lights
+  description: 'Turn on Dog Room light.dining_room_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: ade1881c09d756a139244f39158bbd37
+    entity_id: binary_sensor.dog_room_ecolink_dr1_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.dining_room_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 91d9af73f11624667e0191a4415d7165
+    entity_id: light.dining_room_lights
+    domain: light
+  mode: single
+
+- id: 'id_on Dog Room switch.stereo'
+  alias: Turn on Dog Room switch.stereo
+  description: 'Turn on Dog Room switch.stereo'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: ade1881c09d756a139244f39158bbd37
+    entity_id: binary_sensor.dog_room_ecolink_dr1_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.stereo.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 79fca2fd256c30788e09b32961ec7f80
+    entity_id: switch.stereo
+    domain: switch
+  mode: single
+
+- id: 'id_on Nook light.nook_lights'
+  alias: Turn on Nook light.nook_lights
+  description: 'Turn on Nook light.nook_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 4fba19171315eb60a6be75491f434eab
+    entity_id: binary_sensor.nook_ecolink_r10_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.nook_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 50af069be4ef2ff05c5443c94cab8de1
+    entity_id: light.nook_lights
+    domain: light
+  mode: single
+
+- id: 'id_on Stairwell light.stairtop_lights'
+  alias: Turn on Stairwell light.stairtop_lights
+  description: 'Turn on Stairwell light.stairtop_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 5c008366b4c20254712c56284f3288cf
+    entity_id: binary_sensor.stairwell_ecolink_r9_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.stairtop_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 1516b133e9eb4f7ea6bfa0a6945ec236
+    entity_id: light.stairtop_lights
+    domain: light
+  mode: single
+
+- id: 'id_on Stairwell light.stairwell_light'
+  alias: Turn on Stairwell light.stairwell_light
+  description: 'Turn on Stairwell light.stairwell_light'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 5c008366b4c20254712c56284f3288cf
+    entity_id: binary_sensor.stairwell_ecolink_r9_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.stairwell_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: a82b6ef880861bc615a2acb062441ebd
+    entity_id: light.stairwell_light
+    domain: light
+  mode: single
+
+- id: 'id_on Stairwell switch.tv_lamps'
+  alias: Turn on Stairwell switch.tv_lamps
+  description: 'Turn on Stairwell switch.tv_lamps'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 5c008366b4c20254712c56284f3288cf
+    entity_id: binary_sensor.stairwell_ecolink_r9_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.tv_lamps.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 640c902858841e5f397e78db7b81369f
+    entity_id: switch.tv_lamps
+    domain: switch
+  mode: single
+
+- id: 'id_on Game nook light.stairtop_lights'
+  alias: Turn on Game nook light.stairtop_lights
+  description: 'Turn on Game nook light.stairtop_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 1b80397efb3b0b150b52ca2dbc06cd9f
+    entity_id: binary_sensor.game_nook_ecolink_r4_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.light.stairtop_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 1516b133e9eb4f7ea6bfa0a6945ec236
+    entity_id: light.stairtop_lights
+    domain: light
+  mode: single
+
+- id: 'id_on Game nook light.stairwell_light'
+  alias: Turn on Game nook light.stairwell_light
+  description: 'Turn on Game nook light.stairwell_light'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 1b80397efb3b0b150b52ca2dbc06cd9f
+    entity_id: binary_sensor.game_nook_ecolink_r4_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.light.stairwell_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: a82b6ef880861bc615a2acb062441ebd
+    entity_id: light.stairwell_light
+    domain: light
+  mode: single
+
+- id: 'id_on Game nook switch.tv_lamps'
+  alias: Turn on Game nook switch.tv_lamps
+  description: 'Turn on Game nook switch.tv_lamps'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 1b80397efb3b0b150b52ca2dbc06cd9f
+    entity_id: binary_sensor.game_nook_ecolink_r4_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.switch.tv_lamps.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 640c902858841e5f397e78db7b81369f
+    entity_id: switch.tv_lamps
+    domain: switch
+  mode: single
+
+- id: 'id_on Game nook switch.bar_lights'
+  alias: Turn on Game nook switch.bar_lights
+  description: 'Turn on Game nook switch.bar_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 1b80397efb3b0b150b52ca2dbc06cd9f
+    entity_id: binary_sensor.game_nook_ecolink_r4_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.switch.bar_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 118172cb88a7b3ad7303e46ac3fc4cf9
+    entity_id: switch.bar_lights
+    domain: switch
+  mode: single
+
+- id: 'id_on Bar lights with lava lamp light.stairwell_light'
+  alias: Turn on Bar lights with lava lamp light.stairwell_light
+  description: 'Turn on Bar lights with lava lamp light.stairwell_light'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 44799c082c7cf2e8df8594f3f5e582c5
+    entity_id: binary_sensor.bar_ecolink_n2_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.light.stairwell_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: a82b6ef880861bc615a2acb062441ebd
+    entity_id: light.stairwell_light
+    domain: light
+  mode: single
+
+- id: 'id_on Bar lights with lava lamp switch.tv_lamps'
+  alias: Turn on Bar lights with lava lamp switch.tv_lamps
+  description: 'Turn on Bar lights with lava lamp switch.tv_lamps'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 44799c082c7cf2e8df8594f3f5e582c5
+    entity_id: binary_sensor.bar_ecolink_n2_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.switch.tv_lamps.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 640c902858841e5f397e78db7b81369f
+    entity_id: switch.tv_lamps
+    domain: switch
+  mode: single
+
+- id: 'id_on Bar lights with lava lamp switch.bar_lights'
+  alias: Turn on Bar lights with lava lamp switch.bar_lights
+  description: 'Turn on Bar lights with lava lamp switch.bar_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 44799c082c7cf2e8df8594f3f5e582c5
+    entity_id: binary_sensor.bar_ecolink_n2_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.switch.bar_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 118172cb88a7b3ad7303e46ac3fc4cf9
+    entity_id: switch.bar_lights
+    domain: switch
+  mode: single
+
+- id: 'id_on Bar lights with lava lamp light.blue_room_light'
+  alias: Turn on Bar lights with lava lamp light.blue_room_light
+  description: 'Turn on Bar lights with lava lamp light.blue_room_light'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 44799c082c7cf2e8df8594f3f5e582c5
+    entity_id: binary_sensor.bar_ecolink_n2_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.light.blue_room_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: d2bf06ddc473fc7fcdeb5dd31772b631
+    entity_id: light.blue_room_light
+    domain: light
+  mode: single
+
+- id: 'id_on Bar lights with lava lamp light.blue_room_lamp'
+  alias: Turn on Bar lights with lava lamp light.blue_room_lamp
+  description: 'Turn on Bar lights with lava lamp light.blue_room_lamp'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 44799c082c7cf2e8df8594f3f5e582c5
+    entity_id: binary_sensor.bar_ecolink_n2_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.light.blue_room_lamp.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 3b9778f894b5b7728cfd30ca6f4ffb0b
+    entity_id: light.blue_room_lamp
+    domain: light
+  mode: single
+
+- id: 'id_on Bar lights with lava lamp light.qbr_lamp'
+  alias: Turn on Bar lights with lava lamp light.qbr_lamp
+  description: 'Turn on Bar lights with lava lamp light.qbr_lamp'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 44799c082c7cf2e8df8594f3f5e582c5
+    entity_id: binary_sensor.bar_ecolink_n2_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: template
+    value_template: '{{ states.light.qbr_lamp.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: f0a992d1da9441a2307161debade7f42
+    entity_id: light.qbr_lamp
+    domain: light
+  mode: single
+
+- id: 'id_on Foyer light.foyer'
+  alias: Turn on Foyer light.foyer
+  description: 'Turn on Foyer light.foyer'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 405a697bff2f20a969eef1b22d3a2c45
+    entity_id: binary_sensor.foyer_ecolink_rn1_sensor_state_any
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.foyer.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 0fbeebc4615661ecd662124b037af091
+    entity_id: light.foyer
+    domain: light
+  mode: single
+
+- id: 'id_on Frontyard and Folly light.porch_lights_basic'
+  alias: Turn on Frontyard and Folly light.porch_lights_basic
+  description: 'Turn on Frontyard and Folly light.porch_lights_basic'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 79655d0585ee5bf96ea16c301e7cba07
+    entity_id: binary_sensor.porch_ecolink_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.porch_lights_basic.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: eefea2188ba97cec36cacd1b5e52c53d
+    entity_id: light.porch_lights_basic
+    domain: light
+  mode: single
+
+- id: 'id_on Frontyard and Folly light.foyer'
+  alias: Turn on Frontyard and Folly light.foyer
+  description: 'Turn on Frontyard and Folly light.foyer'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 79655d0585ee5bf96ea16c301e7cba07
+    entity_id: binary_sensor.porch_ecolink_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.foyer.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 0fbeebc4615661ecd662124b037af091
+    entity_id: light.foyer
+    domain: light
+  mode: single
+
+- id: 'id_on Frontyard and Folly switch.bedroom_eve'
+  alias: Turn on Frontyard and Folly switch.bedroom_eve
+  description: 'Turn on Frontyard and Folly switch.bedroom_eve'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 79655d0585ee5bf96ea16c301e7cba07
+    entity_id: binary_sensor.porch_ecolink_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.bedroom_eve.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: bd51a86a55a4d6a478b3b068086d1408
+    entity_id: switch.bedroom_eve
+    domain: switch
+  mode: single
+
+- id: 'id_on Frontyard and Folly switch.garage_eve'
+  alias: Turn on Frontyard and Folly switch.garage_eve
+  description: 'Turn on Frontyard and Folly switch.garage_eve'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 79655d0585ee5bf96ea16c301e7cba07
+    entity_id: binary_sensor.porch_ecolink_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.garage_eve.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: a907586bb2e540b96de901a601965ea8
+    entity_id: switch.garage_eve
+    domain: switch
+  mode: single
+
+- id: 'id_on Frontyard and Folly switch.folly'
+  alias: Turn on Frontyard and Folly switch.folly
+  description: 'Turn on Frontyard and Folly switch.folly'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 79655d0585ee5bf96ea16c301e7cba07
+    entity_id: binary_sensor.porch_ecolink_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.folly.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 523ca68a907229df994d2f5b0dbae2b6
+    entity_id: switch.folly
+    domain: switch
+  mode: single
+
+- id: 'id_on Sideyard light.side_yard_flood_light'
+  alias: Turn on Sideyard light.side_yard_flood_light
+  description: 'Turn on Sideyard light.side_yard_flood_light'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.side_yard_flood_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: ede054a6094d1ee55d8590715680df79
+    entity_id: light.side_yard_flood_light
+    domain: light
+  mode: single
+
+- id: 'id_on Driveway switch.driveway_light'
+  alias: Turn on Driveway switch.driveway_light
+  description: 'Turn on Driveway switch.driveway_light'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.driveway_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 4d8828b407d5995e3cc2d297ace59487
+    entity_id: switch.driveway_light
+    domain: switch
+  mode: single
+
+- id: 'id_on Back Deck switch.deck_lanterns'
+  alias: Turn on Back Deck switch.deck_lanterns
+  description: 'Turn on Back Deck switch.deck_lanterns'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 03a78f48b6d0b78670d6eae6319424cd
+    entity_id: binary_sensor.back_deck_ecolink_bd1_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.deck_lanterns.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: ed082f2155c462eff570f49b8e16478c
+    entity_id: switch.deck_lanterns
+    domain: switch
+  mode: single
+
+- id: 'id_on Back Deck switch.deck_eve_lights'
+  alias: Turn on Back Deck switch.deck_eve_lights
+  description: 'Turn on Back Deck switch.deck_eve_lights'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 03a78f48b6d0b78670d6eae6319424cd
+    entity_id: binary_sensor.back_deck_ecolink_bd1_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.deck_eve_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: b24dce10868cfb786ad77d0e0e637d6b
+    entity_id: switch.deck_eve_lights
+    domain: switch
+  mode: single
+
+- id: 'id_on Back Deck light.backyard_floodlight'
+  alias: Turn on Back Deck light.backyard_floodlight
+  description: 'Turn on Back Deck light.backyard_floodlight'
+  trigger: 
+  - type: turned_on
+    platform: device
+    device_id: 03a78f48b6d0b78670d6eae6319424cd
+    entity_id: binary_sensor.back_deck_ecolink_bd1_motion_detection
+    domain: binary_sensor
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.backyard_floodlight.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: e7fd2b791a36344d9415fd53dc49316c
+    entity_id: light.backyard_floodlight
+    domain: light
+  mode: single
+
+- id: 'id_on Off Heat Dish switch.heat_dish'
+  alias: Turn on Off Heat Dish switch.heat_dish
+  description: 'Turn on Off Heat Dish switch.heat_dish'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.heat_dish.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: f103db3cc8b7ec6600ce7696d70f6b64
+    entity_id: switch.heat_dish
+    domain: switch
+  mode: single
+
+- id: 'id_on Off Fireplace switch.fireplace'
+  alias: Turn on Off Fireplace switch.fireplace
+  description: 'Turn on Off Fireplace switch.fireplace'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.fireplace.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 2ffb76d1fdec0a79fa89f844f47bbcd8
+    entity_id: switch.fireplace
+    domain: switch
+  mode: single
+
+- id: 'id_on Offs light.gba_mirror_light'
+  alias: Turn on Offs light.gba_mirror_light
+  description: 'Turn on Offs light.gba_mirror_light'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.gba_mirror_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: bd365ab659b9f628729cd247515dc7fe
+    entity_id: light.gba_mirror_light
+    domain: light
+  mode: single
+
+- id: 'id_on Offs switch.gba_light'
+  alias: Turn on Offs switch.gba_light
+  description: 'Turn on Offs switch.gba_light'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.gba_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: c84224104d0cc9348f8499771f9b07ee
+    entity_id: switch.gba_light
+    domain: switch
+  mode: single
+
+- id: 'id_on Offs light.gbr_lights'
+  alias: Turn on Offs light.gbr_lights
+  description: 'Turn on Offs light.gbr_lights'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.gbr_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 3411d5ea7046fa4cf4a9b7067cc45c9c
+    entity_id: light.gbr_lights
+    domain: light
+  mode: single
+
+- id: 'id_on Offs light.shower_light'
+  alias: Turn on Offs light.shower_light
+  description: 'Turn on Offs light.shower_light'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.shower_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 1948f44012e6a993baa9cff20edef48d
+    entity_id: light.shower_light
+    domain: light
+  mode: single
+
+- id: 'id_on Offs light.bathtub_light'
+  alias: Turn on Offs light.bathtub_light
+  description: 'Turn on Offs light.bathtub_light'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.bathtub_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 921c67fcff28cf8d5cf6d8e9ce01ce5d
+    entity_id: light.bathtub_light
+    domain: light
+  mode: single
+
+- id: 'id_on Offs switch.bathroom_lights'
+  alias: Turn on Offs switch.bathroom_lights
+  description: 'Turn on Offs switch.bathroom_lights'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.bathroom_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 28153d526db4492c20bd42be6bd95128
+    entity_id: switch.bathroom_lights
+    domain: switch
+  mode: single
+
+- id: 'id_on Offs light.bedside_light'
+  alias: Turn on Offs light.bedside_light
+  description: 'Turn on Offs light.bedside_light'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.bedside_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 0e2a451b88848fd4cdbd0e9fcaf2d4ff
+    entity_id: light.bedside_light
+    domain: light
+  mode: single
+
+- id: 'id_on Offs light.skylight'
+  alias: Turn on Offs light.skylight
+  description: 'Turn on Offs light.skylight'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.skylight.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: e11162917e5c4b2fccf768f190befeb4
+    entity_id: light.skylight
+    domain: light
+  mode: single
+
+- id: 'id_on Offs light.dbr_lamp'
+  alias: Turn on Offs light.dbr_lamp
+  description: 'Turn on Offs light.dbr_lamp'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.dbr_lamp.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 278d0e90dc72db435472e17c50205ce5
+    entity_id: light.dbr_lamp
+    domain: light
+  mode: single
+
+- id: 'id_on Offs light.side_yard_flood_light'
+  alias: Turn on Offs light.side_yard_flood_light
+  description: 'Turn on Offs light.side_yard_flood_light'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.side_yard_flood_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: ede054a6094d1ee55d8590715680df79
+    entity_id: light.side_yard_flood_light
+    domain: light
+  mode: single
+
+- id: 'id_on Offs light.log_lights'
+  alias: Turn on Offs light.log_lights
+  description: 'Turn on Offs light.log_lights'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.log_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: f715bd86f07f62193e7a75ddc3ad73db
+    entity_id: light.log_lights
+    domain: light
+  mode: single
+
+- id: 'id_on Offs light.living_room_spotlight'
+  alias: Turn on Offs light.living_room_spotlight
+  description: 'Turn on Offs light.living_room_spotlight'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.living_room_spotlight.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 943ce6b7388a18c77e9045c5af29b5cb
+    entity_id: light.living_room_spotlight
+    domain: light
+  mode: single
+
+- id: 'id_on Offs light.fridge_top_light'
+  alias: Turn on Offs light.fridge_top_light
+  description: 'Turn on Offs light.fridge_top_light'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.fridge_top_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 63f2f6623e2f791d1d0df1a687d5baa7
+    entity_id: light.fridge_top_light
+    domain: light
+  mode: single
+
+- id: 'id_on Offs switch.door_2'
+  alias: Turn on Offs switch.door_2
+  description: 'Turn on Offs switch.door_2'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.door_2.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 2e761565db2aaaeb0af6a0ca3ec40a32
+    entity_id: switch.door_2
+    domain: switch
+  mode: single
+
+- id: 'id_on Offs switch.garage_stereo'
+  alias: Turn on Offs switch.garage_stereo
+  description: 'Turn on Offs switch.garage_stereo'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.garage_stereo.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: e5b13058bd21d562c5bd16e63be0def1
+    entity_id: switch.garage_stereo
+    domain: switch
+  mode: single
+
+- id: 'id_on Offs switch.hot_water'
+  alias: Turn on Offs switch.hot_water
+  description: 'Turn on Offs switch.hot_water'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.hot_water.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 3a48789c8a18ba1d729d8e44bf21a41c
+    entity_id: switch.hot_water
+    domain: switch
+  mode: single
+
+- id: 'id_on Offs switch.driveway_light'
+  alias: Turn on Offs switch.driveway_light
+  description: 'Turn on Offs switch.driveway_light'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.driveway_light.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 4d8828b407d5995e3cc2d297ace59487
+    entity_id: switch.driveway_light
+    domain: switch
+  mode: single
+
+- id: 'id_on Offs switch.porch_christmas_lights'
+  alias: Turn on Offs switch.porch_christmas_lights
+  description: 'Turn on Offs switch.porch_christmas_lights'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.porch_christmas_lights.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 36227bddd59da353ef198a981a89a906
+    entity_id: switch.porch_christmas_lights
+    domain: switch
+  mode: single
+
+- id: 'id_on Offs light.entryway_christmas_lights_basic'
+  alias: Turn on Offs light.entryway_christmas_lights_basic
+  description: 'Turn on Offs light.entryway_christmas_lights_basic'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.light.entryway_christmas_lights_basic.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: 92cc962771db4a9f1d84925958e59067
+    entity_id: light.entryway_christmas_lights_basic
+    domain: light
+  mode: single
+
+- id: 'id_on Offs switch.rv_heat'
+  alias: Turn on Offs switch.rv_heat
+  description: 'Turn on Offs switch.rv_heat'
+  trigger: 
+  conditions: 
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: template
+    value_template: '{{ states.switch.rv_heat.state == "off" }}'
+  action: 
+  - type: turn_on
+    device_id: b80942ba2140d25b9a3132bbd368d0d2
+    entity_id: switch.rv_heat
+    domain: switch
+  mode: single
+
+- id: 'id_off light.office_lights'
+  alias: Turn off light.office_lights
+  description: 'Turn off light.office_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.office_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.office_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.office_ecolink_r12.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.office_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.office_ecolink_r12.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 2b4a608bbc48e9caf0c797d5c99e5edf
+    entity_id: light.office_lights
+    domain: light
+  mode: single
+
+- id: 'id_off light.bedroom_lights'
+  alias: Turn off light.bedroom_lights
+  description: 'Turn off light.bedroom_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.bedroom_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.bedroom_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.mbr_ecolink_r8_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.bedroom_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.mbr_ecolink_r8_sensor_state_any.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: c009ceb6c1ad7396c51f14e30245477e
+    entity_id: light.bedroom_lights
+    domain: light
+  mode: single
+
+- id: 'id_off light.bedroom_spotlight'
+  alias: Turn off light.bedroom_spotlight
+  description: 'Turn off light.bedroom_spotlight'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.bedroom_spotlight.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.bedroom_spotlight.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.mbr_ecolink_r8_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.bedroom_spotlight.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.mbr_ecolink_r8_sensor_state_any.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 5d2b9e87091d9e1887cc9f8ebe27ca19
+    entity_id: light.bedroom_spotlight
+    domain: light
+  mode: single
+
+- id: 'id_off light.deco_lamp'
+  alias: Turn off light.deco_lamp
+  description: 'Turn off light.deco_lamp'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.deco_lamp.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.deco_lamp.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.mbr_ecolink_r8_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.deco_lamp.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.mbr_ecolink_r8_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.deco_lamp.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.deco_lamp.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.mba_ecolink_n3_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.deco_lamp.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.mba_ecolink_n3_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: a72025ffe437693b4c4407a3617c1ce6
+    entity_id: light.deco_lamp
+    domain: light
+  mode: single
+
+- id: 'id_off light.nicolas_mirror_lights'
+  alias: Turn off light.nicolas_mirror_lights
+  description: 'Turn off light.nicolas_mirror_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.nicolas_mirror_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.nicolas_mirror_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.mba_ecolink_n3_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.nicolas_mirror_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.mba_ecolink_n3_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: dba68bd6f4658d5e7c77af3ce71f3686
+    entity_id: light.nicolas_mirror_lights
+    domain: light
+  mode: single
+
+- id: 'id_off light.lances_mirror_lights'
+  alias: Turn off light.lances_mirror_lights
+  description: 'Turn off light.lances_mirror_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.lances_mirror_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.lances_mirror_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.mba_ecolink_n3_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.lances_mirror_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.mba_ecolink_n3_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 603094a34d2c55ba6519828baf98c059
+    entity_id: light.lances_mirror_lights
+    domain: light
+  mode: single
+
+- id: 'id_off light.dbr_lamp'
+  alias: Turn off light.dbr_lamp
+  description: 'Turn off light.dbr_lamp'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.dbr_lamp.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.dbr_lamp.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.dbr_lamp.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.dbr_lamp.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.dbr_lamp.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.dbr_lamp.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 278d0e90dc72db435472e17c50205ce5
+    entity_id: light.dbr_lamp
+    domain: light
+  mode: single
+
+- id: 'id_off light.qbr_lamp'
+  alias: Turn off light.qbr_lamp
+  description: 'Turn off light.qbr_lamp'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.qbr_lamp.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.qbr_lamp.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.qbr_ecolink_r3_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.qbr_lamp.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.qbr_ecolink_r3_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.qbr_lamp.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.qbr_lamp.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.bar_ecolink_n2_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.qbr_lamp.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.bar_ecolink_n2_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: f0a992d1da9441a2307161debade7f42
+    entity_id: light.qbr_lamp
+    domain: light
+  mode: single
+
+- id: 'id_off light.blue_room_lamp'
+  alias: Turn off light.blue_room_lamp
+  description: 'Turn off light.blue_room_lamp'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.blue_room_lamp.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.blue_room_lamp.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.blue_room_ecolink_n1_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.blue_room_lamp.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.blue_room_ecolink_n1_motion_detection.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.blue_room_lamp.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.blue_room_lamp.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.bar_ecolink_n2_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.blue_room_lamp.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.bar_ecolink_n2_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 3b9778f894b5b7728cfd30ca6f4ffb0b
+    entity_id: light.blue_room_lamp
+    domain: light
+  mode: single
+
+- id: 'id_off light.blue_room_light'
+  alias: Turn off light.blue_room_light
+  description: 'Turn off light.blue_room_light'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.blue_room_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.blue_room_light.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.blue_room_ecolink_n1_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.blue_room_light.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.blue_room_ecolink_n1_motion_detection.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.blue_room_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.blue_room_light.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.bar_ecolink_n2_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.blue_room_light.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.bar_ecolink_n2_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: d2bf06ddc473fc7fcdeb5dd31772b631
+    entity_id: light.blue_room_light
+    domain: light
+  mode: single
+
+- id: 'id_off light.dining_room_lights'
+  alias: Turn off light.dining_room_lights
+  description: 'Turn off light.dining_room_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.dining_room_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dining_room_ecolink_b_r11_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dining_room_ecolink_b_r11_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.dining_room_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.living_room_ecolink_r5_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.living_room_ecolink_r5_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.dining_room_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dog_room_ecolink_dr1_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dog_room_ecolink_dr1_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 91d9af73f11624667e0191a4415d7165
+    entity_id: light.dining_room_lights
+    domain: light
+  mode: single
+
+- id: 'id_off light.chandelier'
+  alias: Turn off light.chandelier
+  description: 'Turn off light.chandelier'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.chandelier.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.chandelier.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dining_room_ecolink_b_r11_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.chandelier.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dining_room_ecolink_b_r11_sensor_state_any.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 47f3a0ea4425d4ba8d2705c340192390
+    entity_id: light.chandelier
+    domain: light
+  mode: single
+
+- id: 'id_off light.living_room_lights'
+  alias: Turn off light.living_room_lights
+  description: 'Turn off light.living_room_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.living_room_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.living_room_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dining_room_ecolink_b_r11_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.living_room_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dining_room_ecolink_b_r11_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.living_room_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.living_room_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.living_room_ecolink_r5_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.living_room_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.living_room_ecolink_r5_sensor_state_any.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 6c87c049f59a1908188dade6850eaa28
+    entity_id: light.living_room_lights
+    domain: light
+  mode: single
+
+- id: 'id_off light.kitchen_lights'
+  alias: Turn off light.kitchen_lights
+  description: 'Turn off light.kitchen_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.kitchen_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dining_room_ecolink_b_r11_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dining_room_ecolink_b_r11_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.kitchen_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.living_room_ecolink_r5_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.living_room_ecolink_r5_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.kitchen_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.kitchen_ecolink_r2_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.kitchen_ecolink_r2_sensor_state_any.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 6d7d0d2ad5f63e0bb5cdc8b195ad26ea
+    entity_id: light.kitchen_lights
+    domain: light
+  mode: single
+
+- id: 'id_off light.fridge_top_light'
+  alias: Turn off light.fridge_top_light
+  description: 'Turn off light.fridge_top_light'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.fridge_top_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.fridge_top_light.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dining_room_ecolink_b_r11_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.fridge_top_light.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dining_room_ecolink_b_r11_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.fridge_top_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.fridge_top_light.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.living_room_ecolink_r5_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.fridge_top_light.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.living_room_ecolink_r5_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.fridge_top_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.fridge_top_light.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.kitchen_ecolink_r2_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.fridge_top_light.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.kitchen_ecolink_r2_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.fridge_top_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.fridge_top_light.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.fridge_top_light.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 63f2f6623e2f791d1d0df1a687d5baa7
+    entity_id: light.fridge_top_light
+    domain: light
+  mode: single
+
+- id: 'id_off light.entryway_christmas_lights_basic'
+  alias: Turn off light.entryway_christmas_lights_basic
+  description: 'Turn off light.entryway_christmas_lights_basic'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.entryway_christmas_lights_basic.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.entryway_christmas_lights_basic.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dining_room_ecolink_b_r11_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.entryway_christmas_lights_basic.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dining_room_ecolink_b_r11_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.entryway_christmas_lights_basic.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.entryway_christmas_lights_basic.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.living_room_ecolink_r5_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.entryway_christmas_lights_basic.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.living_room_ecolink_r5_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.entryway_christmas_lights_basic.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.entryway_christmas_lights_basic.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.entryway_christmas_lights_basic.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 92cc962771db4a9f1d84925958e59067
+    entity_id: light.entryway_christmas_lights_basic
+    domain: light
+  mode: single
+
+- id: 'id_off switch.stereo'
+  alias: Turn off switch.stereo
+  description: 'Turn off switch.stereo'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.stereo.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.stereo.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dining_room_ecolink_b_r11_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.stereo.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dining_room_ecolink_b_r11_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.stereo.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.stereo.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dog_room_ecolink_dr1_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.stereo.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dog_room_ecolink_dr1_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 79fca2fd256c30788e09b32961ec7f80
+    entity_id: switch.stereo
+    domain: switch
+  mode: single
+
+- id: 'id_off switch.garage_lights'
+  alias: Turn off switch.garage_lights
+  description: 'Turn off switch.garage_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.garage_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_r6_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_r6_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.garage_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_two_r21_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_two_r21_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.garage_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.breezeway_ecolink_two_r22_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.breezeway_ecolink_two_r22_sensor_state_any.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 8963e9d3e15e7242ad86bc53ca90abf1
+    entity_id: switch.garage_lights
+    domain: switch
+  mode: single
+
+- id: 'id_off switch.garage_stereo'
+  alias: Turn off switch.garage_stereo
+  description: 'Turn off switch.garage_stereo'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_stereo.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.garage_stereo.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_r6_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_stereo.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_r6_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_stereo.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.garage_stereo.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_two_r21_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_stereo.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_two_r21_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_stereo.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.garage_stereo.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_stereo.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: e5b13058bd21d562c5bd16e63be0def1
+    entity_id: switch.garage_stereo
+    domain: switch
+  mode: single
+
+- id: 'id_off switch.garage_eve'
+  alias: Turn off switch.garage_eve
+  description: 'Turn off switch.garage_eve'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_eve.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.garage_eve.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_r6_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_eve.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_r6_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_eve.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.garage_eve.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_two_r21_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_eve.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_two_r21_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_eve.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.garage_eve.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.porch_ecolink_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.garage_eve.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.porch_ecolink_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: a907586bb2e540b96de901a601965ea8
+    entity_id: switch.garage_eve
+    domain: switch
+  mode: single
+
+- id: 'id_off switch.breezeway_lights'
+  alias: Turn off switch.breezeway_lights
+  description: 'Turn off switch.breezeway_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.breezeway_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.breezeway_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_r6_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.breezeway_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_r6_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.breezeway_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.breezeway_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.breezeway_ecolink_two_r22_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.breezeway_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.breezeway_ecolink_two_r22_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.breezeway_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.breezeway_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.breezeway_ecolink_r7_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.breezeway_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.breezeway_ecolink_r7_sensor_state_any.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 2d9b07c69773e8bad5b488ff9b34dbb6
+    entity_id: switch.breezeway_lights
+    domain: switch
+  mode: single
+
+- id: 'id_off light.garage_back_door_light'
+  alias: Turn off light.garage_back_door_light
+  description: 'Turn off light.garage_back_door_light'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.garage_back_door_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.garage_back_door_light.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_two_r21_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.garage_back_door_light.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_ecolink_two_r21_sensor_state_any.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 8902ab71c32f610e53bd7502b935933e
+    entity_id: light.garage_back_door_light
+    domain: light
+  mode: single
+
+- id: 'id_off light.dog_room_lights'
+  alias: Turn off light.dog_room_lights
+  description: 'Turn off light.dog_room_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.dog_room_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.dog_room_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.breezeway_ecolink_r7_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.dog_room_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.breezeway_ecolink_r7_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.dog_room_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.dog_room_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dog_room_ecolink_dr1_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.dog_room_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.dog_room_ecolink_dr1_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 0979bd1905d67faea8f9cab3cb074fcd
+    entity_id: light.dog_room_lights
+    domain: light
+  mode: single
+
+- id: 'id_off light.nook_lights'
+  alias: Turn off light.nook_lights
+  description: 'Turn off light.nook_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.nook_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.nook_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.nook_ecolink_r10_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.nook_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.nook_ecolink_r10_sensor_state_any.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 50af069be4ef2ff05c5443c94cab8de1
+    entity_id: light.nook_lights
+    domain: light
+  mode: single
+
+- id: 'id_off light.stairtop_lights'
+  alias: Turn off light.stairtop_lights
+  description: 'Turn off light.stairtop_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.stairtop_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.stairtop_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.stairwell_ecolink_r9_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.stairtop_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.stairwell_ecolink_r9_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.stairtop_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.stairtop_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.game_nook_ecolink_r4_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.stairtop_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.game_nook_ecolink_r4_sensor_state_any.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 1516b133e9eb4f7ea6bfa0a6945ec236
+    entity_id: light.stairtop_lights
+    domain: light
+  mode: single
+
+- id: 'id_off light.stairwell_light'
+  alias: Turn off light.stairwell_light
+  description: 'Turn off light.stairwell_light'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.stairwell_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.stairwell_light.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.stairwell_ecolink_r9_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.stairwell_light.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.stairwell_ecolink_r9_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.stairwell_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.stairwell_light.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.game_nook_ecolink_r4_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.stairwell_light.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.game_nook_ecolink_r4_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.stairwell_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.stairwell_light.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.bar_ecolink_n2_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.stairwell_light.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.bar_ecolink_n2_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: a82b6ef880861bc615a2acb062441ebd
+    entity_id: light.stairwell_light
+    domain: light
+  mode: single
+
+- id: 'id_off switch.tv_lamps'
+  alias: Turn off switch.tv_lamps
+  description: 'Turn off switch.tv_lamps'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.tv_lamps.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.tv_lamps.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.stairwell_ecolink_r9_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.tv_lamps.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.stairwell_ecolink_r9_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.tv_lamps.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.tv_lamps.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.game_nook_ecolink_r4_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.tv_lamps.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.game_nook_ecolink_r4_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.tv_lamps.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.tv_lamps.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.bar_ecolink_n2_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.tv_lamps.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.bar_ecolink_n2_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 640c902858841e5f397e78db7b81369f
+    entity_id: switch.tv_lamps
+    domain: switch
+  mode: single
+
+- id: 'id_off switch.bar_lights'
+  alias: Turn off switch.bar_lights
+  description: 'Turn off switch.bar_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.bar_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.bar_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.game_nook_ecolink_r4_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.bar_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.game_nook_ecolink_r4_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.bar_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.bar_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.bar_ecolink_n2_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.bar_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.bar_ecolink_n2_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 118172cb88a7b3ad7303e46ac3fc4cf9
+    entity_id: switch.bar_lights
+    domain: switch
+  mode: single
+
+- id: 'id_off light.foyer'
+  alias: Turn off light.foyer
+  description: 'Turn off light.foyer'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.foyer.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.foyer.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.foyer_ecolink_rn1_sensor_state_any.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.foyer.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.foyer_ecolink_rn1_sensor_state_any.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.foyer.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.foyer.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.porch_ecolink_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.foyer.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.porch_ecolink_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 0fbeebc4615661ecd662124b037af091
+    entity_id: light.foyer
+    domain: light
+  mode: single
+
+- id: 'id_off light.porch_lights_basic'
+  alias: Turn off light.porch_lights_basic
+  description: 'Turn off light.porch_lights_basic'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.porch_lights_basic.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.porch_lights_basic.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.porch_ecolink_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.porch_lights_basic.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.porch_ecolink_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: eefea2188ba97cec36cacd1b5e52c53d
+    entity_id: light.porch_lights_basic
+    domain: light
+  mode: single
+
+- id: 'id_off switch.bedroom_eve'
+  alias: Turn off switch.bedroom_eve
+  description: 'Turn off switch.bedroom_eve'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.bedroom_eve.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.bedroom_eve.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.porch_ecolink_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.bedroom_eve.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.porch_ecolink_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: bd51a86a55a4d6a478b3b068086d1408
+    entity_id: switch.bedroom_eve
+    domain: switch
+  mode: single
+
+- id: 'id_off switch.folly'
+  alias: Turn off switch.folly
+  description: 'Turn off switch.folly'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.folly.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.folly.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.porch_ecolink_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.folly.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.porch_ecolink_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 523ca68a907229df994d2f5b0dbae2b6
+    entity_id: switch.folly
+    domain: switch
+  mode: single
+
+- id: 'id_off light.side_yard_flood_light'
+  alias: Turn off light.side_yard_flood_light
+  description: 'Turn off light.side_yard_flood_light'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.side_yard_flood_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.side_yard_flood_light.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.side_yard_flood_light.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.side_yard_flood_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.side_yard_flood_light.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.side_yard_flood_light.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: ede054a6094d1ee55d8590715680df79
+    entity_id: light.side_yard_flood_light
+    domain: light
+  mode: single
+
+- id: 'id_off switch.driveway_light'
+  alias: Turn off switch.driveway_light
+  description: 'Turn off switch.driveway_light'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.driveway_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.driveway_light.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.driveway_light.last_updated) > 36000 }}'
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.driveway_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.driveway_light.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.driveway_light.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 4d8828b407d5995e3cc2d297ace59487
+    entity_id: switch.driveway_light
+    domain: switch
+  mode: single
+
+- id: 'id_off switch.deck_lanterns'
+  alias: Turn off switch.deck_lanterns
+  description: 'Turn off switch.deck_lanterns'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.deck_lanterns.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.deck_lanterns.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.back_deck_ecolink_bd1_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.deck_lanterns.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.back_deck_ecolink_bd1_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: ed082f2155c462eff570f49b8e16478c
+    entity_id: switch.deck_lanterns
+    domain: switch
+  mode: single
+
+- id: 'id_off switch.deck_eve_lights'
+  alias: Turn off switch.deck_eve_lights
+  description: 'Turn off switch.deck_eve_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.deck_eve_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.deck_eve_lights.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.back_deck_ecolink_bd1_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.deck_eve_lights.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.back_deck_ecolink_bd1_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: b24dce10868cfb786ad77d0e0e637d6b
+    entity_id: switch.deck_eve_lights
+    domain: switch
+  mode: single
+
+- id: 'id_off light.backyard_floodlight'
+  alias: Turn off light.backyard_floodlight
+  description: 'Turn off light.backyard_floodlight'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.backyard_floodlight.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.backyard_floodlight.state == "on" }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.back_deck_ecolink_bd1_motion_detection.last_updated) > 3600 }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.backyard_floodlight.last_updated) > 36000 }}'
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.back_deck_ecolink_bd1_motion_detection.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: e7fd2b791a36344d9415fd53dc49316c
+    entity_id: light.backyard_floodlight
+    domain: light
+  mode: single
+
+- id: 'id_off switch.heat_dish'
+  alias: Turn off switch.heat_dish
+  description: 'Turn off switch.heat_dish'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.heat_dish.last_updated) > 900 }}'
+        - condition: template
+          value_template: '{{ states.switch.heat_dish.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.heat_dish.last_updated) > 9000 }}'
+  action: 
+  - type: turn_off
+    device_id: f103db3cc8b7ec6600ce7696d70f6b64
+    entity_id: switch.heat_dish
+    domain: switch
+  mode: single
+
+- id: 'id_off switch.fireplace'
+  alias: Turn off switch.fireplace
+  description: 'Turn off switch.fireplace'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.fireplace.last_updated) > 900 }}'
+        - condition: template
+          value_template: '{{ states.switch.fireplace.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.fireplace.last_updated) > 9000 }}'
+  action: 
+  - type: turn_off
+    device_id: 2ffb76d1fdec0a79fa89f844f47bbcd8
+    entity_id: switch.fireplace
+    domain: switch
+  mode: single
+
+- id: 'id_off light.gba_mirror_light'
+  alias: Turn off light.gba_mirror_light
+  description: 'Turn off light.gba_mirror_light'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.gba_mirror_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.gba_mirror_light.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.gba_mirror_light.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: bd365ab659b9f628729cd247515dc7fe
+    entity_id: light.gba_mirror_light
+    domain: light
+  mode: single
+
+- id: 'id_off switch.gba_light'
+  alias: Turn off switch.gba_light
+  description: 'Turn off switch.gba_light'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.gba_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.gba_light.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.gba_light.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: c84224104d0cc9348f8499771f9b07ee
+    entity_id: switch.gba_light
+    domain: switch
+  mode: single
+
+- id: 'id_off light.gbr_lights'
+  alias: Turn off light.gbr_lights
+  description: 'Turn off light.gbr_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.gbr_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.gbr_lights.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.gbr_lights.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 3411d5ea7046fa4cf4a9b7067cc45c9c
+    entity_id: light.gbr_lights
+    domain: light
+  mode: single
+
+- id: 'id_off light.shower_light'
+  alias: Turn off light.shower_light
+  description: 'Turn off light.shower_light'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.shower_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.shower_light.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.shower_light.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 1948f44012e6a993baa9cff20edef48d
+    entity_id: light.shower_light
+    domain: light
+  mode: single
+
+- id: 'id_off light.bathtub_light'
+  alias: Turn off light.bathtub_light
+  description: 'Turn off light.bathtub_light'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.bathtub_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.bathtub_light.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.bathtub_light.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 921c67fcff28cf8d5cf6d8e9ce01ce5d
+    entity_id: light.bathtub_light
+    domain: light
+  mode: single
+
+- id: 'id_off switch.bathroom_lights'
+  alias: Turn off switch.bathroom_lights
+  description: 'Turn off switch.bathroom_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.bathroom_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.bathroom_lights.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.bathroom_lights.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 28153d526db4492c20bd42be6bd95128
+    entity_id: switch.bathroom_lights
+    domain: switch
+  mode: single
+
+- id: 'id_off light.bedside_light'
+  alias: Turn off light.bedside_light
+  description: 'Turn off light.bedside_light'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.bedside_light.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.bedside_light.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.bedside_light.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 0e2a451b88848fd4cdbd0e9fcaf2d4ff
+    entity_id: light.bedside_light
+    domain: light
+  mode: single
+
+- id: 'id_off light.skylight'
+  alias: Turn off light.skylight
+  description: 'Turn off light.skylight'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.skylight.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.skylight.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.skylight.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: e11162917e5c4b2fccf768f190befeb4
+    entity_id: light.skylight
+    domain: light
+  mode: single
+
+- id: 'id_off light.log_lights'
+  alias: Turn off light.log_lights
+  description: 'Turn off light.log_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.log_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.log_lights.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.log_lights.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: f715bd86f07f62193e7a75ddc3ad73db
+    entity_id: light.log_lights
+    domain: light
+  mode: single
+
+- id: 'id_off light.living_room_spotlight'
+  alias: Turn off light.living_room_spotlight
+  description: 'Turn off light.living_room_spotlight'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.living_room_spotlight.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.light.living_room_spotlight.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.light.living_room_spotlight.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 943ce6b7388a18c77e9045c5af29b5cb
+    entity_id: light.living_room_spotlight
+    domain: light
+  mode: single
+
+- id: 'id_off switch.door_2'
+  alias: Turn off switch.door_2
+  description: 'Turn off switch.door_2'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.door_2.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.door_2.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.door_2.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 2e761565db2aaaeb0af6a0ca3ec40a32
+    entity_id: switch.door_2
+    domain: switch
+  mode: single
+
+- id: 'id_off switch.hot_water'
+  alias: Turn off switch.hot_water
+  description: 'Turn off switch.hot_water'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.hot_water.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.hot_water.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.hot_water.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 3a48789c8a18ba1d729d8e44bf21a41c
+    entity_id: switch.hot_water
+    domain: switch
+  mode: single
+
+- id: 'id_off switch.porch_christmas_lights'
+  alias: Turn off switch.porch_christmas_lights
+  description: 'Turn off switch.porch_christmas_lights'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.porch_christmas_lights.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.porch_christmas_lights.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.porch_christmas_lights.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: 36227bddd59da353ef198a981a89a906
+    entity_id: switch.porch_christmas_lights
+    domain: switch
+  mode: single
+
+- id: 'id_off switch.rv_heat'
+  alias: Turn off switch.rv_heat
+  description: 'Turn off switch.rv_heat'
+  trigger: 
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.minute
+  conditions: 
+    - or:
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.rv_heat.last_updated) > 3600 }}'
+        - condition: template
+          value_template: '{{ states.switch.rv_heat.state == "on" }}'
+      - condition: 
+        - condition: template
+          value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.rv_heat.last_updated) > 36000 }}'
+  action: 
+  - type: turn_off
+    device_id: b80942ba2140d25b9a3132bbd368d0d2
+    entity_id: switch.rv_heat
+    domain: switch
+  mode: single

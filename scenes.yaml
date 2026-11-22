@@ -1,0 +1,772 @@
+
+- id: 'scene_office_lights'
+  name: Scene Office Lights
+  entities: 
+    light.office_lights:
+      friendly_name: office_lights
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_mbr'
+  name: Scene MBR
+  entities: 
+    light.bedroom_lights:
+      friendly_name: bedroom_lights
+      state: 'on'
+    light.bedroom_spotlight:
+      friendly_name: bedroom_spotlight
+      state: 'on'
+    light.deco_lamp:
+      friendly_name: deco_lamp
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_mba'
+  name: Scene MBA
+  entities: 
+    light.nicolas_mirror_lights:
+      friendly_name: nicolas_mirror_lights
+      brightness: 50
+      state: 'on'
+    light.lances_mirror_lights:
+      friendly_name: lances_mirror_lights
+      brightness: 100
+      state: 'on'
+    light.deco_lamp:
+      friendly_name: deco_lamp
+      state: 'on'
+  metadata: {}
+
+- id: 'night_scene_mba'
+  name: Night Scene MBA
+  entities: 
+    light.nicolas_mirror_lights:
+      friendly_name: nicolas_mirror_lights
+      brightness: 10
+      state: 'on'
+    light.lances_mirror_lights:
+      friendly_name: lances_mirror_lights
+      brightness: 20
+      state: 'on'
+    light.deco_lamp:
+      friendly_name: deco_lamp
+      brightness: 51
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_dbr'
+  name: Scene DBR
+  entities: 
+    light.dbr_lamp:
+      friendly_name: dbr_lamp
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_qbr'
+  name: Scene QBR
+  entities: 
+    light.qbr_lamp:
+      friendly_name: qbr_lamp
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_blue_room_light'
+  name: Scene Blue room light
+  entities: 
+    light.blue_room_lamp:
+      friendly_name: blue_room_lamp
+      state: 'on'
+    light.blue_room_light:
+      friendly_name: blue_room_light
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_dining_room'
+  name: Scene Dining Room
+  entities: 
+    light.dining_room_lights:
+      friendly_name: dining_room_lights
+      state: 'on'
+    light.chandelier:
+      friendly_name: chandelier
+      state: 'on'
+    light.living_room_lights:
+      friendly_name: living_room_lights
+      state: 'on'
+    light.kitchen_lights:
+      friendly_name: kitchen_lights
+      state: 'on'
+    light.fridge_top_light:
+      friendly_name: fridge_top_light
+      state: 'on'
+    light.entryway_christmas_lights_basic:
+      friendly_name: entryway_christmas_lights_basic
+      state: 'on'
+  metadata: {}
+
+- id: 'night_scene_dining_room'
+  name: Night Scene Dining Room
+  entities: 
+    light.dining_room_lights:
+      friendly_name: dining_room_lights
+      brightness: 51
+      state: 'on'
+    light.chandelier:
+      friendly_name: chandelier
+      brightness: 51
+      state: 'on'
+    light.living_room_lights:
+      friendly_name: living_room_lights
+      brightness: 51
+      state: 'on'
+    light.kitchen_lights:
+      friendly_name: kitchen_lights
+      brightness: 51
+      state: 'on'
+    light.fridge_top_light:
+      friendly_name: fridge_top_light
+      brightness: 51
+      state: 'on'
+    light.entryway_christmas_lights_basic:
+      friendly_name: entryway_christmas_lights_basic
+      brightness: 51
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_dining_room_stereo'
+  name: Scene Dining Room Stereo
+  entities: 
+    switch.stereo:
+      friendly_name: stereo
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_living_room'
+  name: Scene Living Room
+  entities: 
+    light.living_room_lights:
+      friendly_name: living_room_lights
+      state: 'on'
+    light.dining_room_lights:
+      friendly_name: dining_room_lights
+      state: 'on'
+    light.kitchen_lights:
+      friendly_name: kitchen_lights
+      state: 'on'
+    light.fridge_top_light:
+      friendly_name: fridge_top_light
+      state: 'on'
+    light.entryway_christmas_lights_basic:
+      friendly_name: entryway_christmas_lights_basic
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_kitchen'
+  name: Scene Kitchen
+  entities: 
+    light.kitchen_lights:
+      friendly_name: kitchen_lights
+      state: 'on'
+    light.fridge_top_light:
+      friendly_name: fridge_top_light
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_garage_breezeway'
+  name: Scene Garage Breezeway
+  entities: 
+    switch.garage_lights:
+      friendly_name: garage_lights
+      state: 'on'
+    switch.garage_stereo:
+      friendly_name: garage_stereo
+      state: 'on'
+    switch.garage_eve:
+      friendly_name: garage_eve
+      state: 'on'
+    switch.breezeway_lights:
+      friendly_name: breezeway_lights
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_garage_far'
+  name: Scene Garage Far
+  entities: 
+    switch.garage_lights:
+      friendly_name: garage_lights
+      state: 'on'
+    switch.garage_stereo:
+      friendly_name: garage_stereo
+      state: 'on'
+    switch.garage_eve:
+      friendly_name: garage_eve
+      state: 'on'
+    light.garage_back_door_light:
+      friendly_name: garage_back_door_light
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_breezeway_garage'
+  name: Scene Breezeway Garage
+  entities: 
+    switch.breezeway_lights:
+      friendly_name: breezeway_lights
+      state: 'on'
+    switch.garage_lights:
+      friendly_name: garage_lights
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_breezeway_near'
+  name: Scene Breezeway Near
+  entities: 
+    switch.breezeway_lights:
+      friendly_name: breezeway_lights
+      state: 'on'
+    light.dog_room_lights:
+      friendly_name: dog_room_lights
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_dog_room'
+  name: Scene Dog Room
+  entities: 
+    light.dog_room_lights:
+      friendly_name: dog_room_lights
+      state: 'on'
+    light.dining_room_lights:
+      friendly_name: dining_room_lights
+      state: 'on'
+    switch.stereo:
+      friendly_name: stereo
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_nook'
+  name: Scene Nook
+  entities: 
+    light.nook_lights:
+      friendly_name: nook_lights
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_stairwell'
+  name: Scene Stairwell
+  entities: 
+    light.stairtop_lights:
+      friendly_name: stairtop_lights
+      state: 'on'
+    light.stairwell_light:
+      friendly_name: stairwell_light
+      state: 'on'
+    switch.tv_lamps:
+      friendly_name: tv_lamps
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_game_nook'
+  name: Scene Game nook
+  entities: 
+    light.stairtop_lights:
+      friendly_name: stairtop_lights
+      state: 'on'
+    light.stairwell_light:
+      friendly_name: stairwell_light
+      state: 'on'
+    switch.tv_lamps:
+      friendly_name: tv_lamps
+      state: 'on'
+    switch.bar_lights:
+      friendly_name: bar_lights
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_bar_lights_with_lava_lamp'
+  name: Scene Bar lights with lava lamp
+  entities: 
+    light.stairwell_light:
+      friendly_name: stairwell_light
+      state: 'on'
+    switch.tv_lamps:
+      friendly_name: tv_lamps
+      state: 'on'
+    switch.bar_lights:
+      friendly_name: bar_lights
+      state: 'on'
+    light.blue_room_light:
+      friendly_name: blue_room_light
+      state: 'on'
+    light.blue_room_lamp:
+      friendly_name: blue_room_lamp
+      state: 'on'
+    light.qbr_lamp:
+      friendly_name: qbr_lamp
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_foyer'
+  name: Scene Foyer
+  entities: 
+    light.foyer:
+      friendly_name: foyer
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_frontyard_and_folly'
+  name: Scene Frontyard and Folly
+  entities: 
+    light.porch_lights_basic:
+      friendly_name: porch_lights_basic
+      state: 'on'
+    light.foyer:
+      friendly_name: foyer
+      state: 'on'
+    switch.bedroom_eve:
+      friendly_name: bedroom_eve
+      state: 'on'
+    switch.garage_eve:
+      friendly_name: garage_eve
+      state: 'on'
+    switch.folly:
+      friendly_name: folly
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_sideyard'
+  name: Scene Sideyard
+  entities: 
+    light.side_yard_flood_light:
+      friendly_name: side_yard_flood_light
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_driveway'
+  name: Scene Driveway
+  entities: 
+    switch.driveway_light:
+      friendly_name: driveway_light
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_back_deck'
+  name: Scene Back Deck
+  entities: 
+    switch.deck_lanterns:
+      friendly_name: deck_lanterns
+      state: 'on'
+    switch.deck_eve_lights:
+      friendly_name: deck_eve_lights
+      state: 'on'
+    light.backyard_floodlight:
+      friendly_name: backyard_floodlight
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_off_heat_dish'
+  name: Scene Off Heat Dish
+  entities: 
+    switch.heat_dish:
+      friendly_name: heat_dish
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_off_fireplace'
+  name: Scene Off Fireplace
+  entities: 
+    switch.fireplace:
+      friendly_name: fireplace
+      state: 'on'
+  metadata: {}
+
+- id: 'scene_offs'
+  name: Scene Offs
+  entities: 
+    light.gba_mirror_light:
+      friendly_name: gba_mirror_light
+      state: 'on'
+    switch.gba_light:
+      friendly_name: gba_light
+      state: 'on'
+    light.gbr_lights:
+      friendly_name: gbr_lights
+      state: 'on'
+    light.shower_light:
+      friendly_name: shower_light
+      state: 'on'
+    light.bathtub_light:
+      friendly_name: bathtub_light
+      state: 'on'
+    switch.bathroom_lights:
+      friendly_name: bathroom_lights
+      state: 'on'
+    light.bedside_light:
+      friendly_name: bedside_light
+      state: 'on'
+    light.skylight:
+      friendly_name: skylight
+      state: 'on'
+    light.dbr_lamp:
+      friendly_name: dbr_lamp
+      state: 'on'
+    light.side_yard_flood_light:
+      friendly_name: side_yard_flood_light
+      state: 'on'
+    light.log_lights:
+      friendly_name: log_lights
+      state: 'on'
+    light.living_room_spotlight:
+      friendly_name: living_room_spotlight
+      state: 'on'
+    light.fridge_top_light:
+      friendly_name: fridge_top_light
+      state: 'on'
+    switch.door_2:
+      friendly_name: door_2
+      state: 'on'
+    switch.garage_stereo:
+      friendly_name: garage_stereo
+      state: 'on'
+    switch.hot_water:
+      friendly_name: hot_water
+      state: 'on'
+    switch.driveway_light:
+      friendly_name: driveway_light
+      state: 'on'
+    switch.porch_christmas_lights:
+      friendly_name: porch_christmas_lights
+      state: 'on'
+    light.entryway_christmas_lights_basic:
+      friendly_name: entryway_christmas_lights_basic
+      state: 'on'
+    switch.rv_heat:
+      friendly_name: rv_heat
+      state: 'on'
+  metadata: {}
+
+- id: 'All Off'
+  name: 'All Off'
+  entities: 
+    light.office_lights:
+      friendly_name: office_lights
+      state: 'off'
+    light.bedroom_lights:
+      friendly_name: bedroom_lights
+      state: 'off'
+    light.bedroom_spotlight:
+      friendly_name: bedroom_spotlight
+      state: 'off'
+    light.deco_lamp:
+      friendly_name: deco_lamp
+      state: 'off'
+    light.nicolas_mirror_lights:
+      friendly_name: nicolas_mirror_lights
+      state: 'off'
+    light.lances_mirror_lights:
+      friendly_name: lances_mirror_lights
+      state: 'off'
+    light.dbr_lamp:
+      friendly_name: dbr_lamp
+      state: 'off'
+    light.qbr_lamp:
+      friendly_name: qbr_lamp
+      state: 'off'
+    light.blue_room_lamp:
+      friendly_name: blue_room_lamp
+      state: 'off'
+    light.blue_room_light:
+      friendly_name: blue_room_light
+      state: 'off'
+    light.dining_room_lights:
+      friendly_name: dining_room_lights
+      state: 'off'
+    light.chandelier:
+      friendly_name: chandelier
+      state: 'off'
+    light.living_room_lights:
+      friendly_name: living_room_lights
+      state: 'off'
+    light.kitchen_lights:
+      friendly_name: kitchen_lights
+      state: 'off'
+    light.fridge_top_light:
+      friendly_name: fridge_top_light
+      state: 'off'
+    light.entryway_christmas_lights_basic:
+      friendly_name: entryway_christmas_lights_basic
+      state: 'off'
+    switch.stereo:
+      friendly_name: stereo
+      state: 'off'
+    switch.garage_lights:
+      friendly_name: garage_lights
+      state: 'off'
+    switch.garage_stereo:
+      friendly_name: garage_stereo
+      state: 'off'
+    switch.garage_eve:
+      friendly_name: garage_eve
+      state: 'off'
+    switch.breezeway_lights:
+      friendly_name: breezeway_lights
+      state: 'off'
+    light.garage_back_door_light:
+      friendly_name: garage_back_door_light
+      state: 'off'
+    light.dog_room_lights:
+      friendly_name: dog_room_lights
+      state: 'off'
+    light.nook_lights:
+      friendly_name: nook_lights
+      state: 'off'
+    light.stairtop_lights:
+      friendly_name: stairtop_lights
+      state: 'off'
+    light.stairwell_light:
+      friendly_name: stairwell_light
+      state: 'off'
+    switch.tv_lamps:
+      friendly_name: tv_lamps
+      state: 'off'
+    switch.bar_lights:
+      friendly_name: bar_lights
+      state: 'off'
+    light.foyer:
+      friendly_name: foyer
+      state: 'off'
+    light.porch_lights_basic:
+      friendly_name: porch_lights_basic
+      state: 'off'
+    switch.bedroom_eve:
+      friendly_name: bedroom_eve
+      state: 'off'
+    switch.folly:
+      friendly_name: folly
+      state: 'off'
+    light.side_yard_flood_light:
+      friendly_name: side_yard_flood_light
+      state: 'off'
+    switch.driveway_light:
+      friendly_name: driveway_light
+      state: 'off'
+    switch.deck_lanterns:
+      friendly_name: deck_lanterns
+      state: 'off'
+    switch.deck_eve_lights:
+      friendly_name: deck_eve_lights
+      state: 'off'
+    light.backyard_floodlight:
+      friendly_name: backyard_floodlight
+      state: 'off'
+    switch.heat_dish:
+      friendly_name: heat_dish
+      state: 'off'
+    switch.fireplace:
+      friendly_name: fireplace
+      state: 'off'
+    light.gba_mirror_light:
+      friendly_name: gba_mirror_light
+      state: 'off'
+    switch.gba_light:
+      friendly_name: gba_light
+      state: 'off'
+    light.gbr_lights:
+      friendly_name: gbr_lights
+      state: 'off'
+    light.shower_light:
+      friendly_name: shower_light
+      state: 'off'
+    light.bathtub_light:
+      friendly_name: bathtub_light
+      state: 'off'
+    switch.bathroom_lights:
+      friendly_name: bathroom_lights
+      state: 'off'
+    light.bedside_light:
+      friendly_name: bedside_light
+      state: 'off'
+    light.skylight:
+      friendly_name: skylight
+      state: 'off'
+    light.log_lights:
+      friendly_name: log_lights
+      state: 'off'
+    light.living_room_spotlight:
+      friendly_name: living_room_spotlight
+      state: 'off'
+    switch.door_2:
+      friendly_name: door_2
+      state: 'off'
+    switch.hot_water:
+      friendly_name: hot_water
+      state: 'off'
+    switch.porch_christmas_lights:
+      friendly_name: porch_christmas_lights
+      state: 'off'
+    switch.rv_heat:
+      friendly_name: rv_heat
+      state: 'off'
+  metadata: {}
+
+- id: 'All On'
+  name: 'All On'
+  entities: 
+    light.office_lights:
+      friendly_name: office_lights
+      state: 'on'
+    light.bedroom_lights:
+      friendly_name: bedroom_lights
+      state: 'on'
+    light.bedroom_spotlight:
+      friendly_name: bedroom_spotlight
+      state: 'on'
+    light.deco_lamp:
+      friendly_name: deco_lamp
+      state: 'on'
+    light.nicolas_mirror_lights:
+      friendly_name: nicolas_mirror_lights
+      state: 'on'
+    light.lances_mirror_lights:
+      friendly_name: lances_mirror_lights
+      state: 'on'
+    light.dbr_lamp:
+      friendly_name: dbr_lamp
+      state: 'on'
+    light.qbr_lamp:
+      friendly_name: qbr_lamp
+      state: 'on'
+    light.blue_room_lamp:
+      friendly_name: blue_room_lamp
+      state: 'on'
+    light.blue_room_light:
+      friendly_name: blue_room_light
+      state: 'on'
+    light.dining_room_lights:
+      friendly_name: dining_room_lights
+      state: 'on'
+    light.chandelier:
+      friendly_name: chandelier
+      state: 'on'
+    light.living_room_lights:
+      friendly_name: living_room_lights
+      state: 'on'
+    light.kitchen_lights:
+      friendly_name: kitchen_lights
+      state: 'on'
+    light.fridge_top_light:
+      friendly_name: fridge_top_light
+      state: 'on'
+    light.entryway_christmas_lights_basic:
+      friendly_name: entryway_christmas_lights_basic
+      state: 'on'
+    switch.stereo:
+      friendly_name: stereo
+      state: 'on'
+    switch.garage_lights:
+      friendly_name: garage_lights
+      state: 'on'
+    switch.garage_stereo:
+      friendly_name: garage_stereo
+      state: 'on'
+    switch.garage_eve:
+      friendly_name: garage_eve
+      state: 'on'
+    switch.breezeway_lights:
+      friendly_name: breezeway_lights
+      state: 'on'
+    light.garage_back_door_light:
+      friendly_name: garage_back_door_light
+      state: 'on'
+    light.dog_room_lights:
+      friendly_name: dog_room_lights
+      state: 'on'
+    light.nook_lights:
+      friendly_name: nook_lights
+      state: 'on'
+    light.stairtop_lights:
+      friendly_name: stairtop_lights
+      state: 'on'
+    light.stairwell_light:
+      friendly_name: stairwell_light
+      state: 'on'
+    switch.tv_lamps:
+      friendly_name: tv_lamps
+      state: 'on'
+    switch.bar_lights:
+      friendly_name: bar_lights
+      state: 'on'
+    light.foyer:
+      friendly_name: foyer
+      state: 'on'
+    light.porch_lights_basic:
+      friendly_name: porch_lights_basic
+      state: 'on'
+    switch.bedroom_eve:
+      friendly_name: bedroom_eve
+      state: 'on'
+    switch.folly:
+      friendly_name: folly
+      state: 'on'
+    light.side_yard_flood_light:
+      friendly_name: side_yard_flood_light
+      state: 'on'
+    switch.driveway_light:
+      friendly_name: driveway_light
+      state: 'on'
+    switch.deck_lanterns:
+      friendly_name: deck_lanterns
+      state: 'on'
+    switch.deck_eve_lights:
+      friendly_name: deck_eve_lights
+      state: 'on'
+    light.backyard_floodlight:
+      friendly_name: backyard_floodlight
+      state: 'on'
+    switch.heat_dish:
+      friendly_name: heat_dish
+      state: 'on'
+    switch.fireplace:
+      friendly_name: fireplace
+      state: 'on'
+    light.gba_mirror_light:
+      friendly_name: gba_mirror_light
+      state: 'on'
+    switch.gba_light:
+      friendly_name: gba_light
+      state: 'on'
+    light.gbr_lights:
+      friendly_name: gbr_lights
+      state: 'on'
+    light.shower_light:
+      friendly_name: shower_light
+      state: 'on'
+    light.bathtub_light:
+      friendly_name: bathtub_light
+      state: 'on'
+    switch.bathroom_lights:
+      friendly_name: bathroom_lights
+      state: 'on'
+    light.bedside_light:
+      friendly_name: bedside_light
+      state: 'on'
+    light.skylight:
+      friendly_name: skylight
+      state: 'on'
+    light.log_lights:
+      friendly_name: log_lights
+      state: 'on'
+    light.living_room_spotlight:
+      friendly_name: living_room_spotlight
+      state: 'on'
+    switch.door_2:
+      friendly_name: door_2
+      state: 'on'
+    switch.hot_water:
+      friendly_name: hot_water
+      state: 'on'
+    switch.porch_christmas_lights:
+      friendly_name: porch_christmas_lights
+      state: 'on'
+    switch.rv_heat:
+      friendly_name: rv_heat
+      state: 'on'
+  metadata: {}

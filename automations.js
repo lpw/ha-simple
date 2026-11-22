@@ -14,7 +14,7 @@ export const automations = [
 	{
 		name: 'MBR',
 		sensors: [ 'binary_sensor.mbr_ecolink_r8_sensor_state_any' ],
-		switches: [ 'light.bedroom_lights', 'light.deco_lamp' ],
+		switches: [ 'light.bedroom_lights', 'light.bedroom_spotlight', 'light.deco_lamp' ],
 	},
 	{
 		name: 'MBA',
@@ -31,7 +31,7 @@ export const automations = [
 	{
 		name: 'QBR',
 		sensors: [ 'binary_sensor.qbr_ecolink_r3_sensor_state_any' ],
-		switches: [ 'light.qbr_lamp', 'light.qbr_light' ],
+		switches: [ 'light.qbr_lamp' ],
 		allDay: true,
 	},
 	{
@@ -44,7 +44,7 @@ export const automations = [
 		name: 'Dining Room',
 		night: 20,
 		sensors: [ 'binary_sensor.dining_room_ecolink_b_r11_sensor_state_any' ],
-		switches: [ 'light.dining_room_lights', 'light.chandelier', 'light.living_room_lights', 'light.kitchen_lights', 'light.fridge_top_light' ],
+		switches: [ 'light.dining_room_lights', 'light.chandelier', 'light.living_room_lights', 'light.kitchen_lights', 'light.fridge_top_light', 'light.entryway_christmas_lights_basic' ],
 	},
 	{
 		name: 'Dining Room Stereo',
@@ -55,7 +55,7 @@ export const automations = [
 	{
 		name: 'Living Room',
 		sensors: [ 'binary_sensor.living_room_ecolink_r5_sensor_state_any' ],
-		switches: [ 'light.living_room_lights', 'light.dining_room_lights', 'light.kitchen_lights', 'light.fridge_top_light' ],
+		switches: [ 'light.living_room_lights', 'light.dining_room_lights', 'light.kitchen_lights', 'light.fridge_top_light', 'light.entryway_christmas_lights_basic' ],
 	},
 	{
 		name: 'Kitchen',
@@ -108,7 +108,7 @@ export const automations = [
 	{
 		name: 'Bar lights with lava lamp',
 		sensors: [ 'binary_sensor.bar_ecolink_n2_motion_detection' ],
-		switches: [ 'light.stairwell_light', 'switch.tv_lamps', 'switch.bar_lights', 'light.blue_room_light', 'light.blue_room_lamp', 'light.qbr_lamp', 'light.qbr_light' ],
+		switches: [ 'light.stairwell_light', 'switch.tv_lamps', 'switch.bar_lights', 'light.blue_room_light', 'light.blue_room_lamp', 'light.qbr_lamp' ],
 		allDay: true,
 	},
 	{
@@ -119,7 +119,7 @@ export const automations = [
 	{
 		name: 'Frontyard and Folly',
 		sensors: [ 'binary_sensor.porch_ecolink_motion_detection' ],
-		switches: [ 'light.porch_lights', 'light.foyer', 'switch.bedroom_eve', 'switch.garage_eve', 'switch.folly', 'switch.circle_lights' ],
+		switches: [ 'light.porch_lights_basic', 'light.foyer', 'switch.bedroom_eve', 'switch.garage_eve', 'switch.folly' ],
 	},
 	{
 		name: 'Sideyard',
@@ -143,9 +143,15 @@ export const automations = [
 		switches: [ 'switch.heat_dish' ]
 	},
 	{
+		name: 'Off Fireplace',
+		sensors: [],
+		time: 900,
+		switches: [ 'switch.fireplace' ]
+	},
+	{
 		name: 'Offs',
 		sensors: [],
-		// don't include switch.heat_dish as it's above with shorter time 
+		// don't include switch.heat_dish (now fireplace too) as it's above with shorter time 
 		// shower, bathtub, bathroom, bedside, skylight, ?? (already got sideyard, driveway, and dbr)
 		// do include gba, gbr, but remove on bedtime
 		// garage back door has trigger
@@ -157,7 +163,6 @@ export const automations = [
 			'light.bathtub_light',
 			'switch.bathroom_lights',
 			'light.bedside_light',
-			'light.bedroom_spotlight',
 			'light.skylight',
 			'light.dbr_lamp',
 			'light.side_yard_flood_light',	// ?
@@ -168,11 +173,10 @@ export const automations = [
 			'switch.garage_stereo',
 			'switch.hot_water',
 			'switch.driveway_light',
-			'switch.fireplace',
 			'switch.porch_christmas_lights',
+			'light.entryway_christmas_lights_basic',
 			'switch.rv_heat',
-			'switch.christmas_tree_lights',
-			'switch.christmas_tree_lights',
+			// 'switch.christmas_tree_lights',
 		],
 	},
 ]
